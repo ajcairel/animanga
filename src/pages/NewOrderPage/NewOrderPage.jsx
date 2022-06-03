@@ -1,5 +1,5 @@
 export default function NewOrderPage() {
   return (
-    <h1>NewOrderPage</h1>
+    <h1>Top 5</h1>
   );
 }
