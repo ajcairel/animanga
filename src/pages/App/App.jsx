@@ -25,8 +25,7 @@ function App() {
         </>
         :
         // <AuthPage setUser={setUser} />
-        // <WelcomePage />
-        <WelcomePage />
+        <WelcomePage setUser={setUser}/>
       }
     </main>
   );
