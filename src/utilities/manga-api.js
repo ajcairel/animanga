@@ -12,6 +12,9 @@ export function getAllManga() {
     return sendRequest(`${BASE_URL}/all`);
 }
 
+export function removeManga(manga) {
+    return sendRequest(`${BASE_URL}/remove`, 'PUT', manga)
+}
 
 export function search(query) {
     return sendRequest(`${BASE_URL}/search`, 'POST', {query})

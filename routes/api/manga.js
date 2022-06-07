@@ -11,5 +11,7 @@ router.get('/all', mangaCtrl.getAllManga);
 // FIX THIS
 router.post('/search', mangaCtrl.search);
 
+router.put('/remove', mangaCtrl.removeManga);
+
 
 module.exports = router;

@@ -2,6 +2,13 @@ import * as mangaAPI from '../../utilities/manga-api';
 
 export default function MangaListCard({ manga }) {
 
+
+  async function removeManga() {
+    console.log(manga);
+    const removed = await mangaAPI.removeManga(manga);
+  
+  }
+
   
 
     return (
@@ -31,7 +38,7 @@ export default function MangaListCard({ manga }) {
           </figure>
           <h3>{manga.title}</h3>
         </a>
-        {/* <button onClick={removeManga}>Goodbye</button> */}
+        <button onClick={removeManga}>Goodbye</button>
       </article>
     );
   }

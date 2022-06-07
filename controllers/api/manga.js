@@ -3,10 +3,17 @@ const Manga = require('../../models/manga');
 module.exports = {
     createManga,
     getAllManga,
-    search
+    search,
+    removeManga
 }
 
 const API_URL = 'https://api.jikan.moe/v4/'
+
+async function removeManga(req, res) {
+    let goodbye = await Manga.findOneAndUpdate({users: req.user._id, mangaId: req.body.mangaId}, { $pull: {users: req.user._id} });
+    await goodbye.save();
+    res.json(goodbye);
+}
 
 async function search(req, res) {
     const anime = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=title&sort=asc&limit=12`
