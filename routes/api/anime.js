@@ -6,6 +6,8 @@ const ensureLoggedIn = require ('../../config/ensureLoggedIn');
 
 // POST /api/anime
 router.post('/add', animeCtrl.createAnime);
+// GET /api/anime
+router.get('/all', animeCtrl.getAllAnime);
 
 
 module.exports = router;

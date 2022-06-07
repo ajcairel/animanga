@@ -1,9 +1,26 @@
 const Anime = require('../../models/anime');
 
 module.exports = {
-    createAnime
+    createAnime,
+    getAllAnime,
+    search
 }
 
+const API_URL = 'https://api.jikan.moe/v4/'
+
+async function search(req, res) {
+    const anime = await fetch(`https://api.jikan.moe/v4/anime?q=${req.body.query}&order_by=title&sort=asc&limit=12`
+    ).then(res => res.json());
+
+    res.json(anime.data);
+    
+}
+
+async function getAllAnime(req, res) {
+    const animes = await Anime.find({user: req.user._id}, );
+    console.log(animes)
+    res.json(animes);
+}
 
 async function createAnime(req, res) {
     const anime = await Anime.findOne({animeId: req.body.animeId})
@@ -18,7 +35,6 @@ async function createAnime(req, res) {
         console.log('ANIME CONTROLLER', newAnime);
         res.json(newAnime);
     }
-   
 }
 
 

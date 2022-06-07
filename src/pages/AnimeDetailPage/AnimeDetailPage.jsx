@@ -30,7 +30,6 @@ export default function AnimeDetailPage() {
   
   async function handleAddAnime() {
       console.log(specificAnime);
-      
       const anime = await animeAPI.addAnime(specificAnime); // already added .data above
       console.log('ANIME' + anime);
 

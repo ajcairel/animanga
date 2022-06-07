@@ -5,6 +5,7 @@ import WelcomePage from '../WelcomePage/WelcomePage';
 import AuthPage from '../AuthPage/AuthPage';
 import AnimeSearchPage from '../AnimeSearchPage/AnimeSearchPage';
 import AnimeDetailPage from '../AnimeDetailPage/AnimeDetailPage';
+import UserProfilePage from '../UserProfilePage/UserProfilePage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -27,6 +28,7 @@ function App() {
             <Route path="/search/anime" element={<AnimeSearchPage />} />
             <Route path="anime/:aniId" element={<AnimeDetailPage />} />
             <Route path="/orders/new" element={<NewOrderPage />} />
+            <Route path="/profile" element ={<UserProfilePage user={user}/>}/>
           </Routes>
         </>
         :
