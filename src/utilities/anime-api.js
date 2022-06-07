@@ -11,7 +11,7 @@ export function addAnime(animeData) {
 }
 
 export function getAllAnime() {
-    return sendRequest(BASE_URL);
+    return sendRequest(`${BASE_URL}/all`);
 }
 
 

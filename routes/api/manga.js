@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const animeCtrl = require('../../controllers/api/anime');
+const mangaCtrl = require('../../controllers/api/manga');
 // require the authorization middleware function
 const ensureLoggedIn = require ('../../config/ensureLoggedIn');
 
 // POST /api/anime/add
-router.post('/add', animeCtrl.createAnime);
+router.post('/add', mangaCtrl.createManga);
 // GET /api/anime/all
-router.get('/all', animeCtrl.getAllAnime);
+router.get('/all', mangaCtrl.getAllManga);
 // FIX THIS
-router.post('/search', animeCtrl.search);
+router.post('/search', mangaCtrl.search);
 
 
 module.exports = router;

@@ -30,6 +30,7 @@ export default function NavBar({ user, setUser }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Link to="/search/anime" className="nav-link">Search Anime</Link>
+            <Link to="/search/manga" className="nav-link">Search Manga</Link>
             <Link to="/profile" className="nav-link">My Profile</Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">

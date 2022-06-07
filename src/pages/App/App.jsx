@@ -4,7 +4,9 @@ import { getUser } from '../../utilities/users-service';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import AuthPage from '../AuthPage/AuthPage';
 import AnimeSearchPage from '../AnimeSearchPage/AnimeSearchPage';
+import MangaSearchPage from '../MangaSearchPage/MangaSearchPage';
 import AnimeDetailPage from '../AnimeDetailPage/AnimeDetailPage';
+import MangaDetailPage from '../MangaDetailPage/MangaDetailPage';
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
@@ -26,7 +28,9 @@ function App() {
             <Route path ="/auth" element={<AuthPage setUser={setUser} /> }/>
             <Route path="/orderhistory" element={<OrderHistoryPage />} />
             <Route path="/search/anime" element={<AnimeSearchPage />} />
+            <Route path="/search/manga" element={<MangaSearchPage />} />
             <Route path="anime/:aniId" element={<AnimeDetailPage />} />
+            <Route path="manga/:manId" element={<MangaDetailPage />} />
             <Route path="/orders/new" element={<NewOrderPage />} />
             <Route path="/profile" element ={<UserProfilePage user={user}/>}/>
           </Routes>

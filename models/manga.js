@@ -1,14 +1,15 @@
 const Schema = require('mongoose').Schema;
 
 const mangaSchema = new Schema({
-    user: {
+    user: [{
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    },
+    }],
     title: { type: String, required: true},
-    animeId: { type: Number },
+    mangaId: { type: Number },
     image:  {type: String },
+    malURL: {type: String }
 });
 
 // const mangaListSchema = new Schema({
