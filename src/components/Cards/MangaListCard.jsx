@@ -1,4 +1,9 @@
+import * as mangaAPI from '../../utilities/manga-api';
+
 export default function MangaListCard({ manga }) {
+
+  
+
     return (
       // <Card style={{ width: "18rem" }}>
       //   <Card.Img variant="top" src={anime.image} />
@@ -26,6 +31,7 @@ export default function MangaListCard({ manga }) {
           </figure>
           <h3>{manga.title}</h3>
         </a>
+        {/* <button onClick={removeManga}>Goodbye</button> */}
       </article>
     );
   }

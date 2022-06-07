@@ -1,12 +1,13 @@
-const Schema = require('mongoose').Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const mangaSchema = new Schema({
-    user: [{
+    users: [{
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
     }],
-    title: { type: String, required: true},
+    title: { type: String },
     mangaId: { type: Number },
     image:  {type: String },
     malURL: {type: String }

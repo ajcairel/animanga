@@ -4,7 +4,6 @@ import * as animeAPI from '../../utilities/anime-api';
 
 export default function AnimeDetailPage() {
   const [specificAnime, setSpecificAnime] = useState('');
-  const [created, setCreated] = useState('');
 
   const { aniId } = useParams();
 
@@ -14,6 +13,7 @@ export default function AnimeDetailPage() {
         `https://api.jikan.moe/v4/anime/${aniId}`
       ).then((res) => res.json());
       specificAnime = specificAnime.data;
+
       const animeObj = {
         title: specificAnime && specificAnime.title,
         animeId: specificAnime && specificAnime.mal_id,
@@ -42,12 +42,13 @@ export default function AnimeDetailPage() {
     <div>
       {specificAnime && (
         <>
-        <h1>Post #{specificAnime.mal_id}</h1>
+        <h1>Post #{aniId}</h1>
+        <h2><Link to="/search/anime">Back To Search Anime</Link></h2>
         
         <article className="anime-card">
           <a href={specificAnime.url} target="_blank" rel="noreferrer">
             <figure>
-              <img src={specificAnime.image} alt="Manga Image" />
+              <img src={specificAnime.image} alt="Anime Image" />
             </figure>
             <h3>{specificAnime.title}</h3>
           </a>

@@ -4,7 +4,6 @@ import * as mangaAPI from '../../utilities/manga-api';
 
 export default function MangaDetailPage() {
   const [specificManga, setSpecificManga] = useState('');
-  const [created, setCreated] = useState('');
 
   const { manId } = useParams();
 
@@ -42,6 +41,7 @@ export default function MangaDetailPage() {
       {specificManga && (
         <>
         <h1>Post #{specificManga.mal_id}</h1>
+        
         
         <article className="manga-card">
           <a href={specificManga.url} target="_blank" rel="noreferrer">

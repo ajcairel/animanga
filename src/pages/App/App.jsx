@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import AuthPage from '../AuthPage/AuthPage';
+import AnimeCard from '../../components/Cards/AnimeCard';
+import MangaCard from '../../components/Cards/MangaCard';
 import AnimeSearchPage from '../AnimeSearchPage/AnimeSearchPage';
 import MangaSearchPage from '../MangaSearchPage/MangaSearchPage';
 import AnimeDetailPage from '../AnimeDetailPage/AnimeDetailPage';
@@ -16,12 +18,31 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
+  const [topAnime, setTopAnime] = useState([]);
+    const [topManga, setTopManga] = useState([]);
+
+
+  useEffect(() => {
+    async function getTop() {
+        const topAnime = await fetch('https://api.jikan.moe/v4/top/anime?limit=5'
+        ).then(res => res.json());
+        setTopAnime(topAnime.data);
+        const topManga = await fetch('https://api.jikan.moe/v4/top/manga?limit=5'
+        ).then(res => res.json());
+        setTopManga(topManga.data);
+    }
+    getTop();
+}, []);
 
   return (
     <main className="App">
       { user ?
         <>
           <NavBar user={user} setUser={setUser} />
+          {/* <div className="manga-list">
+                {topAnime.map((anime) => <AnimeCard anime={anime} key={anime.mal_id}/>)}
+                {topManga.map((manga) => <MangaCard manga={manga} key={manga.mal_id}/>)}
+            </div> */}
           {/* <WelcomePage setUser={setUser}/> */}
           <Routes>
             {/* Route components in here */}

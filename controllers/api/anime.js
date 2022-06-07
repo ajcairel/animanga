@@ -3,10 +3,17 @@ const Anime = require('../../models/anime');
 module.exports = {
     createAnime,
     getAllAnime,
-    search
+    search,
+    removeAnime
 }
 
 const API_URL = 'https://api.jikan.moe/v4/'
+
+async function removeAnime(req, res) {
+    let goodbye = await Anime.findOneAndUpdate({users: req.user._id, animeId: req.body.animeId}, { $pull: {users: req.user._id} });
+    await goodbye.save();
+    res.json(goodbye);
+}
 
 async function search(req, res) {
     const anime = await fetch(`https://api.jikan.moe/v4/anime?q=${req.body.query}&order_by=title&sort=asc&limit=12`
@@ -17,21 +24,27 @@ async function search(req, res) {
 }
 
 async function getAllAnime(req, res) {
-    const animes = await Anime.find({user: req.user._id}, );
+    const animes = await Anime.find({users: req.user._id}, );
     console.log(animes)
     res.json(animes);
 }
 
 async function createAnime(req, res) {
-    const anime = await Anime.findOne({animeId: req.body.animeId})
+    // changed from const
+    let anime = await Anime.findOne({animeId: req.body.animeId})
     if (anime) {
-        anime.user.push(req.user._id);
-        anime.save();
-        console.log('ADDED DUPLICATE')
+        anime.users.push(req.user._id);
+        await anime.save();
+        console.log('MANGA ID: ', req.body.mangaId);
+        console.log('ANIME ID: ', req.body.animeId);
+        res.json(anime);
+        console.log('ANIME ALREADY IN DATABASE, ADDED USER');
     } else {
-        req.body.user = req.user._id;
+        req.body.users = req.user._id;
         const newAnime = new Anime(req.body);
-        newAnime.save();
+        await newAnime.save();
+        console.log('NEW MANGA ID: ', req.body.mangaId);
+        console.log('NEW ANIME ID: ', req.body.animeId);
         console.log('ANIME CONTROLLER', newAnime);
         res.json(newAnime);
     }

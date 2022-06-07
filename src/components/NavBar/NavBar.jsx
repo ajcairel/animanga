@@ -29,12 +29,14 @@ export default function NavBar({ user, setUser }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/search/anime" className="nav-link">Search Anime</Link>
-            <Link to="/search/manga" className="nav-link">Search Manga</Link>
-            <Link to="/profile" className="nav-link">My Profile</Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            {/* <Link to="/search/anime" className="nav-link">Search Anime</Link> */}
+            {/* <Link to="/search/manga" className="nav-link">Search Manga</Link> */}
+            {/* <Link to="/profile" className="nav-link">My Profile</Link> */}
+            <Nav.Link eventKey="1" as={Link} to="/search/anime">Search Anime</Nav.Link>
+            <Nav.Link eventKey="2" as={Link} to="/search/manga">Search Manga</Nav.Link>
+            <Nav.Link eventKey="3" as={Link} to="/profile">My Profile</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="" onClick={handleLogOut}>Log Out</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>

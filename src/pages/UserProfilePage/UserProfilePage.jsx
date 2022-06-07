@@ -12,14 +12,14 @@ export default function UserProfilePage({user}) {
         <> 
         { view ? 
             <> 
-                <AnimeListPage />
                 <button onClick={() => setView(false)}>View My Manga</button>
+                <AnimeListPage />
             </>
 
             :
             <>
-                <MangaListPage />
                 <button onClick={() => setView(true)}>View My Anime</button>
+                <MangaListPage />
             
             </>
             

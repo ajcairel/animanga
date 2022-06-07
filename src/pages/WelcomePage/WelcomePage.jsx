@@ -45,6 +45,7 @@ export default function WelcomePage({setUser}) {
             
             <>
             <h1>Top 10</h1>
+            <button onClick={() => setAuth(true)}>Click Here To Log In or Sign Up</button>
             <div className="manga-list">
                 {topAnime.map((anime) => <AnimeCard anime={anime} key={anime.mal_id}/>)}
                 {topManga.map((manga) => <MangaCard manga={manga} key={manga.mal_id}/>)}
@@ -53,7 +54,6 @@ export default function WelcomePage({setUser}) {
             </div>
 
 
-            <button onClick={() => setAuth(true)}>Click Here To Log In or Sign Up</button>
            
         </>}
             </>

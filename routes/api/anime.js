@@ -11,5 +11,7 @@ router.get('/all', animeCtrl.getAllAnime);
 // FIX THIS
 router.post('/search', animeCtrl.search);
 
+router.put('/remove', animeCtrl.removeAnime);
+
 
 module.exports = router;

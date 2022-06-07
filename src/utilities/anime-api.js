@@ -14,9 +14,13 @@ export function getAllAnime() {
     return sendRequest(`${BASE_URL}/all`);
 }
 
+export function removeAnime(anime) {
+    return sendRequest(`${BASE_URL}/remove`, 'PUT', anime)
+}
+
 
 export function search(query) {
-    return sendRequest(`${BASE_URL}/search`, "POST", {query})
+    return sendRequest(`${BASE_URL}/search`, 'POST', {query})
 }
 
 // CHANGE THIS SHIT 
