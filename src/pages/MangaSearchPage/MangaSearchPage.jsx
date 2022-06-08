@@ -14,18 +14,18 @@ export default function MangaSearchPage() {
     fetchManga(mangaSearch);
   }
 
-    // const fetchManga = async (search) => {
-    //     const manga = await mangaAPI.search(search);
-    //     setMangaList(manga);
-    // }
+    const fetchManga = async (search) => {
+        const manga = await mangaAPI.search(search);
+        setMangaList(manga);
+    }
 
-  const fetchManga = async (search) => {
-    const manga = await fetch(
-      `https://api.jikan.moe/v4/manga?q=${search}&order_by=title&sort=asc&limit=12`
-    ).then((res) => res.json());
+  // const fetchManga = async (search) => {
+  //   const manga = await fetch(
+  //     `https://api.jikan.moe/v4/manga?q=${search}&order_by=title&sort=asc&limit=12`
+  //   ).then((res) => res.json());
 
-    setMangaList(manga.data);
-  };
+  //   setMangaList(manga.data);
+  // };
 
   return (
     <>
