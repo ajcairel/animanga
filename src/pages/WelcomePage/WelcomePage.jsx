@@ -10,16 +10,30 @@ export default function WelcomePage({setUser}) {
     const [topAnime, setTopAnime] = useState([]);
     const [topManga, setTopManga] = useState([]);
 
+    // useEffect(() => {
+    //     async function getTop() {
+    //         const topAnime = await fetch('https://api.jikan.moe/v4/top/anime?limit=10'
+    //         ).then(res => res.json());
+    //         setTopAnime(topAnime.data);
+    //         const topManga = await fetch('https://api.jikan.moe/v4/top/manga?limit=10'
+    //         ).then(res => res.json());
+    //         setTopManga(topManga.data);
+    //     }
+    //     getTop();
+    // }, []);
     useEffect(() => {
         async function getTop() {
-            const topAnime = await fetch('https://api.jikan.moe/v4/top/anime?limit=10'
-            ).then(res => res.json());
-            setTopAnime(topAnime.data);
-            const topManga = await fetch('https://api.jikan.moe/v4/top/manga?limit=10'
-            ).then(res => res.json());
-            setTopManga(topManga.data);
+            const topRated = await animeAPI.getTop()
+            // console.log(topRated);
+            setTopAnime(topRated.data);
+        //     const topAnime = await fetch('https://api.jikan.moe/v4/top/anime?limit=10'
+        //     ).then(res => res.json());
+        //     setTopAnime(topAnime.data);
+        //     const topManga = await fetch('https://api.jikan.moe/v4/top/manga?limit=10'
+        //     ).then(res => res.json());
+        //     setTopManga(topManga.data);
         }
-        getTop();
+            getTop();
     }, []);
 
     
@@ -48,7 +62,7 @@ export default function WelcomePage({setUser}) {
             <button onClick={() => setAuth(true)}>Click Here To Log In or Sign Up</button>
             <div className="manga-list">
                 {topAnime.map((anime) => <AnimeCard anime={anime} key={anime.mal_id}/>)}
-                {topManga.map((manga) => <MangaCard manga={manga} key={manga.mal_id}/>)}
+                {/* {topManga.map((manga) => <MangaCard manga={manga} key={manga.mal_id}/>)} */}
             </div>
             <div className="manga-list">
             </div>

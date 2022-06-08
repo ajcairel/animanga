@@ -1,13 +1,22 @@
 const Anime = require('../../models/anime');
+const fetch = require('node-fetch');
 
 module.exports = {
     createAnime,
     getAllAnime,
     search,
-    removeAnime
+    removeAnime,
+    getTop
 }
 
 const API_URL = 'https://api.jikan.moe/v4/'
+
+async function getTop(req, res) {
+    const animes = await fetch('https://api.jikan.moe/v4/top/anime?limit=10'
+            ).then(res => res.json());
+            res.json(animes)
+
+}
 
 async function removeAnime(req, res) {
     let goodbye = await Anime.findOneAndUpdate({users: req.user._id, animeId: req.body.animeId}, { $pull: {users: req.user._id} });

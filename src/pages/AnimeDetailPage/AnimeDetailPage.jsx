@@ -1,11 +1,17 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import * as animeAPI from '../../utilities/anime-api';
 
 export default function AnimeDetailPage() {
   const [specificAnime, setSpecificAnime] = useState('');
-
   const { aniId } = useParams();
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     async function getAnime() {
@@ -53,11 +59,35 @@ export default function AnimeDetailPage() {
             <h3>{specificAnime.title}</h3>
           </a>
         </article>
-        <button onClick={handleAddAnime}>pls</button>
+        <Button variant="success" onClick={handleAddAnime}>Add To My List</Button>
+        <Button variant="primary" onClick={handleShow}>
+        Launch static backdrop modal
+      </Button>
+        <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {specificAnime.title} has been added!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" as={Link} to="/profile">My Anime</Button>
+        </Modal.Footer>
+      </Modal>
 
           
         </>
       )}
     </div>
+
+    
   );
 }

@@ -24,7 +24,7 @@ export default function MangaListPage() {
 
     return (
         <>
-            <h1>hello</h1>
+            <h1>hi</h1>
             <div>
                 {manga.map((manga, idx) => <MangaListCard manga={manga} key={idx}/>)}
             </div>

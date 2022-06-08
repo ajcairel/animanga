@@ -13,5 +13,7 @@ router.post('/search', animeCtrl.search);
 
 router.put('/remove', animeCtrl.removeAnime);
 
+router.get('/top', animeCtrl.getTop);
+
 
 module.exports = router;
