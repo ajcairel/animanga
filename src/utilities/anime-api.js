@@ -23,6 +23,10 @@ export function search(query) {
     return sendRequest(`${BASE_URL}/search`, 'POST', {query})
 }
 
+export function getDetails(params) {
+    return sendRequest(`${BASE_URL}/aniId/details`, 'POST', {params})
+}
+
 export function getTop() {
     return sendRequest(`${BASE_URL}/top`)
 

@@ -6,10 +6,18 @@ module.exports = {
     getAllAnime,
     search,
     removeAnime,
-    getTop
+    getTop,
+    getDetails
 }
 
 const API_URL = 'https://api.jikan.moe/v4/'
+
+async function getDetails(req,res) {
+    const anime = await fetch(`https://api.jikan.moe/v4/anime/${req.body.params}`
+    ).then(res => res.json());
+        console.log(anime);
+        res.json(anime);
+}
 
 async function getTop(req, res) {
     const animes = await fetch('https://api.jikan.moe/v4/top/anime?limit=10'

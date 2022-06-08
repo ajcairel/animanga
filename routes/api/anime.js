@@ -15,5 +15,7 @@ router.put('/remove', animeCtrl.removeAnime);
 
 router.get('/top', animeCtrl.getTop);
 
+router.post('/aniId/details', animeCtrl.getDetails);
+
 
 module.exports = router;

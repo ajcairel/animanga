@@ -1,6 +1,7 @@
 import { Card } from "react-bootstrap";
 import Button from 'react-bootstrap/Button'
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import * as animeAPI from '../../utilities/anime-api';
 export default function AnimeListCard({ anime }) {
@@ -26,7 +27,7 @@ export default function AnimeListCard({ anime }) {
         </Card.Text> */}
       </Card.Body>
       <Card.Body>
-        <Card.Link href={anime.malURL} target="_blank" rel="noreferrer">MAL Page</Card.Link>
+        <Link to={`/anime/${anime.animeId}`}>Anime Details</Link>
       </Card.Body>
       <button onClick={removeAnime}>Goodbye</button>
       <Button variant="danger" onClick={removeAnime}>Delete</Button>

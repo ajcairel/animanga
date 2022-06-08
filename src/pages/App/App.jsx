@@ -22,17 +22,17 @@ function App() {
     const [topManga, setTopManga] = useState([]);
 
 
-  useEffect(() => {
-    async function getTop() {
-        const topAnime = await fetch('https://api.jikan.moe/v4/top/anime?limit=5'
-        ).then(res => res.json());
-        setTopAnime(topAnime.data);
-        const topManga = await fetch('https://api.jikan.moe/v4/top/manga?limit=5'
-        ).then(res => res.json());
-        setTopManga(topManga.data);
-    }
-    getTop();
-}, []);
+//   useEffect(() => {
+//     async function getTop() {
+//         const topAnime = await fetch('https://api.jikan.moe/v4/top/anime?limit=5'
+//         ).then(res => res.json());
+//         setTopAnime(topAnime.data);
+//         const topManga = await fetch('https://api.jikan.moe/v4/top/manga?limit=5'
+//         ).then(res => res.json());
+//         setTopManga(topManga.data);
+//     }
+//     getTop();
+// }, []);
 
   return (
     <main className="App">
