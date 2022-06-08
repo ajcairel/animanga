@@ -7,7 +7,8 @@ module.exports = {
     search,
     removeAnime,
     getTop,
-    getDetails
+    getDetails,
+    getProfileAnime
 }
 
 const API_URL = 'https://api.jikan.moe/v4/'
@@ -42,6 +43,12 @@ async function search(req, res) {
 
 async function getAllAnime(req, res) {
     const animes = await Anime.find({users: req.user._id}, );
+    console.log(animes)
+    res.json(animes);
+}
+
+async function getProfileAnime(req, res) {
+    const animes = await Anime.find({users: req.body.params}, );
     console.log(animes)
     res.json(animes);
 }

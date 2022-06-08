@@ -111,7 +111,7 @@ export default function AnimeDetailPage() {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" as={Link} to="/profile">
+              <Button variant="primary" as={Link} to="/profile/user">
                 My Anime
               </Button>
             </Modal.Footer>

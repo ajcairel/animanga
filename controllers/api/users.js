@@ -5,7 +5,8 @@ const User = require('../../models/user');
 module.exports = {
   create,
   login,
-  checkToken
+  checkToken,
+  getUsers
 };
 
 function checkToken(req, res) {
@@ -37,6 +38,13 @@ async function create(req, res) {
   } catch (err) {
     res.status(400).json(err);
   }
+}
+
+async function getUsers(req, res) {
+  const users = await User.find({});
+  console.log(users);
+  res.json(users);
+
 }
 
 /*-- Helper Functions --*/

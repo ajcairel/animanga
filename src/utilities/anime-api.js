@@ -14,6 +14,10 @@ export function getAllAnime() {
     return sendRequest(`${BASE_URL}/all`);
 }
 
+export function getProfileAnime(params) {
+    return sendRequest(`${BASE_URL}/profile/user`, 'POST', {params});
+}
+
 export function removeAnime(anime) {
     return sendRequest(`${BASE_URL}/remove`, 'PUT', anime)
 }

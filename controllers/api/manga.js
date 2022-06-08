@@ -1,7 +1,7 @@
 const Manga = require('../../models/manga');
 const fetch = require('node-fetch');
 module.exports = {
-    createManga,
+    addManga,
     getAllManga,
     search,
     removeManga, 
@@ -47,7 +47,7 @@ async function getAllManga(req, res) {
     res.json(mangas);
 }
 
-async function createManga(req, res) {
+async function addManga(req, res) {
     const manga = await Manga.findOne({mangaId: req.body.mangaId})
     if (manga) {
         manga.users.push(req.user._id);

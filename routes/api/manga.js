@@ -5,7 +5,7 @@ const mangaCtrl = require('../../controllers/api/manga');
 const ensureLoggedIn = require ('../../config/ensureLoggedIn');
 
 // POST /api/anime/add
-router.post('/add', mangaCtrl.createManga);
+router.post('/add', mangaCtrl.addManga);
 // GET /api/anime/all
 router.get('/all', mangaCtrl.getAllManga);
 // FIX THIS
