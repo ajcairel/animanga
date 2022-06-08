@@ -14,18 +14,18 @@ export default function AnimeSearchPage() {
     fetchAnime(animeSearch);
   }
 
-    // const fetchAnime = async (search) => {
-    //     const anime = await animeAPI.search(search);
-    //     setAnimeList(anime);
-    // }
+    const fetchAnime = async (search) => {
+        const anime = await animeAPI.search(search);
+        setAnimeList(anime);
+    }
 
-  const fetchAnime = async (search) => {
-    const anime = await fetch(
-      `https://api.jikan.moe/v4/anime?q=${search}&order_by=title&sort=asc&limit=12`
-    ).then((res) => res.json());
+  // const fetchAnime = async (search) => {
+  //   const anime = await fetch(
+  //     `https://api.jikan.moe/v4/anime?q=${search}&order_by=title&sort=asc&limit=12`
+  //   ).then((res) => res.json());
 
-    setAnimeList(anime.data);
-  };
+  //   setAnimeList(anime.data);
+  // };
 
   return (
     <>

@@ -16,6 +16,11 @@ export function removeManga(manga) {
     return sendRequest(`${BASE_URL}/remove`, 'PUT', manga)
 }
 
+export function getTop() {
+    return sendRequest(`${BASE_URL}/top`)
+
+}
+
 export function search(query) {
     return sendRequest(`${BASE_URL}/search`, 'POST', {query})
 }

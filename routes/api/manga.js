@@ -13,5 +13,7 @@ router.post('/search', mangaCtrl.search);
 
 router.put('/remove', mangaCtrl.removeManga);
 
+router.get('/top', mangaCtrl.getTop);
+
 
 module.exports = router;
