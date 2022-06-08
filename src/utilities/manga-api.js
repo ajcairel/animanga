@@ -18,7 +18,10 @@ export function removeManga(manga) {
 
 export function getTop() {
     return sendRequest(`${BASE_URL}/top`)
+}
 
+export function getDetails(params) {
+    return sendRequest(`${BASE_URL}/manId/details`, 'POST', {params})
 }
 
 export function search(query) {

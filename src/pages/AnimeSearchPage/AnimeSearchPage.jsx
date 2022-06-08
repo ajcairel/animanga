@@ -34,21 +34,7 @@ export default function AnimeSearchPage() {
   return (
     <>
       <h1>Anime Search</h1>
-      <div class="input-group mb-3" onSubmit={handleAnimeSearch}>
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="button">
-            Button
-          </button>
-        </div>
-        <input
-          type="text"
-          class="form-control"
-          placeholder=""
-          aria-label=""
-          aria-describedby="basic-addon1"
-          onChange={(e) => setAnimeSearch(e.target.value)}
-        />
-      </div>
+      
       <Container fluid>
         <Row>
           <Col>
@@ -60,12 +46,13 @@ export default function AnimeSearchPage() {
                 value={animeSearch}
                 onChange={(e) => setAnimeSearch(e.target.value)}
               />
+              <Button variant="secondary" type="submit" size="lg">Primary</Button>
             </form>
           </Col>
         </Row>
       </Container>
 
-      <form className="search-box" onSubmit={handleAnimeSearch}>
+      {/* <form className="search-box" onSubmit={handleAnimeSearch}>
         <input
           type="search"
           placeholder="Search for an anime..."
@@ -73,7 +60,7 @@ export default function AnimeSearchPage() {
           value={animeSearch}
           onChange={(e) => setAnimeSearch(e.target.value)}
         />
-      </form>
+      </form> */}
 
       <Row xs={2} md={3} className="g-4 my-auto">
         {animeList.map((anime) => (

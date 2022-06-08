@@ -5,10 +5,19 @@ module.exports = {
     getAllManga,
     search,
     removeManga, 
-    getTop
+    getTop,
+    getDetails
 }
 
 const API_URL = 'https://api.jikan.moe/v4/'
+
+
+async function getDetails(req,res) {
+    const manga = await fetch(`https://api.jikan.moe/v4/manga/${req.body.params}`
+    ).then(res => res.json());
+        console.log(manga);
+        res.json(manga);
+}
 
 
 async function getTop(req, res) {

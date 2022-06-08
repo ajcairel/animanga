@@ -15,5 +15,8 @@ router.put('/remove', mangaCtrl.removeManga);
 
 router.get('/top', mangaCtrl.getTop);
 
+router.post('/manId/details', mangaCtrl.getDetails);
+
+
 
 module.exports = router;
