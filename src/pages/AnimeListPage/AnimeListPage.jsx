@@ -5,6 +5,8 @@ import Row from "react-bootstrap/Row";
 export default function AnimeListPage() {
     const [anime, setAnime] = useState([]);
     const [list, setList] = useState()
+    const [refresh, setRefresh] = useState(true);
+
 
     // useEffect(function() {
     //     async function getAnime() {
@@ -23,10 +25,12 @@ export default function AnimeListPage() {
           setList()
         }
         getAnime();
-      }, []);
+      }, [refresh]);
 
     return (
         <>
+                            <button onClick={() => setRefresh(!refresh)}>Update List</button>
+
              <Row xs={2} md={3} className="g-4 my-auto">
              {anime.map((anime, idx) => <AnimeListCard anime={anime} key={idx}/>)}
       </Row>

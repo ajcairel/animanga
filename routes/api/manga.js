@@ -8,6 +8,9 @@ const ensureLoggedIn = require ('../../config/ensureLoggedIn');
 router.post('/add', mangaCtrl.addManga);
 // GET /api/anime/all
 router.get('/all', mangaCtrl.getAllManga);
+
+router.post('/profile/user', mangaCtrl.getProfileManga);
+
 // FIX THIS
 router.post('/search', mangaCtrl.search);
 

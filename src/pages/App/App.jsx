@@ -10,6 +10,7 @@ import MangaSearchPage from '../MangaSearchPage/MangaSearchPage';
 import AnimeDetailPage from '../AnimeDetailPage/AnimeDetailPage';
 import MangaDetailPage from '../MangaDetailPage/MangaDetailPage';
 import ProfilesPage from '../ProfilesPage/ProfilesPage';
+import MyProfilePage from '../UserProfilePage/MyProfilePage';
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
@@ -54,8 +55,11 @@ function App() {
             <Route path="anime/:aniId" element={<AnimeDetailPage />} />
             <Route path="manga/:manId" element={<MangaDetailPage />} />
             <Route path="/orders/new" element={<NewOrderPage />} />
-            <Route path="/profiles" element ={<ProfilesPage />}/>
-            <Route path="/profile/:user" element ={<UserProfilePage user={user}/>}/>
+            {/* <Route path="/profiles" element ={<ProfilesPage user={user}/>}/> */}
+            <Route path="/profiles" element ={<ProfilesPage/>}/>
+            <Route path="/profile/mine" element ={<MyProfilePage user={user}/>}/>
+            {/* <Route path="/profile/:user" element ={<UserProfilePage user={user}/>}/> */}
+            <Route path="/profile/:user" element ={<UserProfilePage/>}/>
           </Routes>
         </>
         :

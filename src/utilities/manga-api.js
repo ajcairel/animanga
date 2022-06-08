@@ -12,6 +12,10 @@ export function getAllManga() {
     return sendRequest(`${BASE_URL}/all`);
 }
 
+export function getProfileManga(params) {
+    return sendRequest(`${BASE_URL}/profile/user`, 'POST', {params});
+}
+
 export function removeManga(manga) {
     return sendRequest(`${BASE_URL}/remove`, 'PUT', manga)
 }

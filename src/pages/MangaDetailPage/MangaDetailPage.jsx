@@ -7,8 +7,9 @@ import Card from "react-bootstrap/Card";
 export default function MangaDetailPage() {
   const [specificManga, setSpecificManga] = useState('');
   const [moreInfo, setMoreInfo] = useState("");
-
   const { manId } = useParams();
+
+ 
 
   // useEffect(() => {
   //   async function getManga() {

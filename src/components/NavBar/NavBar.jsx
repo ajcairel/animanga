@@ -35,7 +35,8 @@ export default function NavBar({ user, setUser }) {
             <Nav.Link eventKey="1" as={Link} to="/search/anime">Search Anime</Nav.Link>
             <Nav.Link eventKey="2" as={Link} to="/search/manga">Search Manga</Nav.Link>
             <Nav.Link eventKey="3" as={Link} to="/profiles">All Profiles</Nav.Link>
-            <Nav.Link eventKey="4" as={Link} to={`/profile/${user._id}`}>My Profile</Nav.Link>
+            {/* <Nav.Link eventKey="4" as={Link} to={`/profile/${user._id}`}>My Profile</Nav.Link> */}
+            <Nav.Link eventKey="5" as={Link} to="/profile/mine">My Profile</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item as={Link} to="" onClick={handleLogOut}>Log Out</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

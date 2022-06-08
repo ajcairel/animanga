@@ -6,7 +6,8 @@ module.exports = {
     search,
     removeManga, 
     getTop,
-    getDetails
+    getDetails,
+    getProfileManga
 }
 
 const API_URL = 'https://api.jikan.moe/v4/'
@@ -43,7 +44,13 @@ async function search(req, res) {
 
 async function getAllManga(req, res) {
     const mangas = await Manga.find({users: req.user._id}, );
-    console.log(mangas)
+    // console.log(mangas)
+    res.json(mangas);
+}
+
+async function getProfileManga(req, res) {
+    const mangas = await Manga.find({users: req.body.params}, );
+    // console.log(animes)
     res.json(mangas);
 }
 
