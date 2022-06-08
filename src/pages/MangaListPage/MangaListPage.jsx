@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import * as mangaAPI from '../../utilities/manga-api';
 import MangaListCard from "../../components/Cards/MangaListCard";
+import Row from "react-bootstrap/Row";
 export default function MangaListPage() {
     const [manga, setManga] = useState([]);
+    const [refresh, setRefresh] = useState(true);
 
     // useEffect(function() {
     //     async function getManga() {
@@ -24,10 +26,16 @@ export default function MangaListPage() {
 
     return (
         <>
-            <h1>hi</h1>
-            <div>
+                  <button onClick={() => setRefresh(!refresh)}>Update List</button>
+
+            {/* <div>
                 {manga.map((manga, idx) => <MangaListCard manga={manga} key={idx}/>)}
-            </div>
+            </div> */}
+            <Row xs={2} md={3} className="g-4 my-auto">
+        {manga.map((manga, idx) => (
+          <MangaListCard manga={manga} key={idx} />
+        ))}
+      </Row>
         
         </>
     );

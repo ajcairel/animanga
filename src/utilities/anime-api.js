@@ -19,9 +19,12 @@ export function getProfileAnime(params) {
 }
 
 export function removeAnime(anime) {
-    return sendRequest(`${BASE_URL}/remove`, 'PUT', anime)
+    return sendRequest(`${BASE_URL}/remove`, 'PUT', anime);
 }
 
+export function isAdded(params) {
+    return sendRequest(`${BASE_URL}/check`, 'POST', {params});
+}
 
 export function search(query) {
     return sendRequest(`${BASE_URL}/search`, 'POST', {query})

@@ -18,6 +18,7 @@ export default function MyProfilePage({user}) {
                 <h1>{user.name}'s Anime</h1>
 
                 <button onClick={() => setView(false)}>View My Manga</button>
+                <br />
                 <AnimeListPage />
             </>
 
@@ -25,6 +26,7 @@ export default function MyProfilePage({user}) {
             <>
                 <h1>{user.name}'s Manga</h1>
                 <button onClick={() => setView(true)}>View My Anime</button>
+                <br />
                 <MangaListPage />
             
             </>

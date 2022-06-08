@@ -9,6 +9,8 @@ router.post('/add', animeCtrl.createAnime);
 // GET /api/anime/all
 router.get('/all', animeCtrl.getAllAnime);
 router.post('/profile/user', animeCtrl.getProfileAnime);
+
+router.post('/check', animeCtrl.isAdded);
 // FIX THIS
 router.post('/search', animeCtrl.search);
 
