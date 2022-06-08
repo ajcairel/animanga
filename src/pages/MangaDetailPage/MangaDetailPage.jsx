@@ -1,15 +1,21 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as mangaAPI from '../../utilities/manga-api';
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
+import './MangaDetailPage.css';
 
 
 export default function MangaDetailPage() {
   const [specificManga, setSpecificManga] = useState('');
   const [moreInfo, setMoreInfo] = useState("");
+  const [added, setAdded] = useState(false);
+  const [show, setShow] = useState(false);
   const { manId } = useParams();
 
- 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   // useEffect(() => {
   //   async function getManga() {
@@ -31,6 +37,11 @@ export default function MangaDetailPage() {
   useEffect(() => {
     async function getManga() {
       let specificManga = await mangaAPI.getDetails(manId);
+      const checked = await mangaAPI.isAdded(manId);
+      console.log(checked.length);
+      if(checked.length) {
+        setAdded(!added)
+      }
       specificManga = specificManga.data;
       setMoreInfo(specificManga);
       const mangaObj = {
@@ -51,6 +62,8 @@ export default function MangaDetailPage() {
       console.log(specificManga);
       const manga = await mangaAPI.addManga(specificManga); // already added .data above
       console.log('Manga' + manga);
+      handleShow();
+      setAdded(!added);
 
   }
 
@@ -60,22 +73,49 @@ export default function MangaDetailPage() {
     <div>
       {specificManga && (
         <>
-        <h1>Post #{manId}</h1>
-        <h2>
+        <h1>{specificManga.title}</h1>
+        {/* <h2>
             <Link to="/search/manga">Back To Search Manga</Link>
-          </h2>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={specificManga.image} />
-            <Card.Body>
-              <Card.Title>{specificManga.title}</Card.Title>
-              <Card.Text>{moreInfo.synopsis}</Card.Text>
-              <Card.Text>{specificManga.duration}</Card.Text>
-            </Card.Body>
-           
-          </Card>
+          </h2> */}
+          <Button variant="success" onClick={handleAddManga} disabled={added}>
+            {added ? 'Added' : 'Add To My List'}
+          </Button>
+          <div className="info">
+            <Card style={{ width: "18rem" }}>
+              <Card.Img variant="top" src={specificManga.image} />
+              <Card.Body>
+                <Card.Title>{specificManga.title}</Card.Title>
+                <Card.Text>{moreInfo.synopsis}</Card.Text>
+                <Card.Text>{specificManga.duration}</Card.Text>
+              </Card.Body>
+            </Card>
+
+          </div>
+
+          {moreInfo.synopsis}
+
+          <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Added!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>{specificManga.title} has been added to your manga list!</Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" as={Link} to="/profile/mine">
+                My Lists
+              </Button>
+            </Modal.Footer>
+          </Modal>
         
         
-        <article className="manga-card">
+        {/* <article className="manga-card">
           <a href={specificManga.url} target="_blank" rel="noreferrer">
             <figure>
               <img src={specificManga.image} alt="Manga Image" />
@@ -83,7 +123,7 @@ export default function MangaDetailPage() {
             <h3>{specificManga.title}</h3>
           </a>
         </article>
-        <button onClick={handleAddManga}>pls</button>
+        <button onClick={handleAddManga}>pls</button> */}
 
           
         </>

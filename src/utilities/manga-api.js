@@ -17,7 +17,11 @@ export function getProfileManga(params) {
 }
 
 export function removeManga(manga) {
-    return sendRequest(`${BASE_URL}/remove`, 'PUT', manga)
+    return sendRequest(`${BASE_URL}/remove`, 'PUT', manga);
+}
+
+export function isAdded(params) {
+    return sendRequest(`${BASE_URL}/check`, 'POST', {params});
 }
 
 export function getTop() {

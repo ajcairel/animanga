@@ -11,6 +11,8 @@ router.get('/all', mangaCtrl.getAllManga);
 
 router.post('/profile/user', mangaCtrl.getProfileManga);
 
+router.post('/check', mangaCtrl.isAdded);
+
 // FIX THIS
 router.post('/search', mangaCtrl.search);
 

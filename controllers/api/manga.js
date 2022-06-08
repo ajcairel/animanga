@@ -7,7 +7,8 @@ module.exports = {
     removeManga, 
     getTop,
     getDetails,
-    getProfileManga
+    getProfileManga,
+    isAdded
 }
 
 const API_URL = 'https://api.jikan.moe/v4/'
@@ -37,9 +38,15 @@ async function removeManga(req, res) {
 async function search(req, res) {
     const anime = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=title&sort=asc&limit=12`
     ).then(res => res.json());
-
     res.json(anime.data);
-    
+}
+
+async function isAdded(req, res) {
+    const found = await Manga.find({users: req.user._id, mangaId: req.body.params});
+    console.log('found: ', found);
+    console.log('body: ', req.user);
+    console.log('params: ', req.body.params);
+    res.json(found);
 }
 
 async function getAllManga(req, res) {

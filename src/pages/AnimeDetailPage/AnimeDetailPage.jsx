@@ -131,7 +131,7 @@ export default function AnimeDetailPage() {
                 Close
               </Button>
               <Button variant="primary" as={Link} to="/profile/mine">
-                My Anime
+                My Lists
               </Button>
             </Modal.Footer>
           </Modal>
