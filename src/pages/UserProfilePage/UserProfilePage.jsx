@@ -42,7 +42,7 @@ export default function UserProfilePage() {
       {view ? (
         <>
           <h1>{user}'s Anime</h1>
-          <button onClick={() => setView(!view)}>View My Manga</button>
+          <button onClick={() => setView(!view)}>View Their Manga</button>
           <Row xs={2} md={3} className="g-4 my-auto">
             {anime.map((anime, idx) => (
               <ProfileAnimeCard anime={anime} key={idx} />
@@ -52,7 +52,7 @@ export default function UserProfilePage() {
       ) : (
         <>
           <h1>{user.name}'s Manga</h1>
-          <button onClick={() => setView(true)}>View My Anime</button>
+          <button onClick={() => setView(true)}>View Their Anime</button>
           <Row xs={2} md={3} className="g-4 my-auto">
             {manga.map((manga, idx) => (
               <ProfileMangaCard manga={manga} key={idx} />

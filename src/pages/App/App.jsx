@@ -41,6 +41,7 @@ function App() {
       { user ?
         <>
           <NavBar user={user} setUser={setUser} />
+          
           {/* <div className="manga-list">
                 {topAnime.map((anime) => <AnimeCard anime={anime} key={anime.mal_id}/>)}
                 {topManga.map((manga) => <MangaCard manga={manga} key={manga.mal_id}/>)}

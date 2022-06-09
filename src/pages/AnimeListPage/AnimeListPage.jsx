@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import * as animeAPI from "../../utilities/anime-api";
 import AnimeListCard from "../../components/Cards/AnimeListCard";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from 'react-bootstrap/Container'
+import './AnimeListPage.css';
 export default function AnimeListPage() {
   const [anime, setAnime] = useState([]);
   const [list, setList] = useState();
@@ -28,14 +31,23 @@ export default function AnimeListPage() {
 
   return (
     <>
-      <button onClick={() => setRefresh(!refresh)}>Update List</button>
 
-      <Row xs={2} md={3} className="g-4 my-auto">
-        {anime.map((anime, idx) => (
-          <AnimeListCard anime={anime} key={idx} refresh={refresh} setRefresh={setRefresh}/>
-        ))}
-      </Row>
-      <h1>hello</h1>
+      {/* <div className="cards">  */}
+
+        <Container >
+          <Row xs={2} md={3} lg={2} className="cards">
+            
+              {anime.map((anime, idx) => (
+                <AnimeListCard anime={anime} key={idx} refresh={refresh} setRefresh={setRefresh}/>
+              ))}
+            
+            
+          </Row>
+
+        </Container>
+       
+      
+      {/* </div> */}
       {/* <div> */}
       {/* {anime.map((anime, idx) => <AnimeListCard anime={anime} key={idx}/>)} */}
       {/* </div> */}

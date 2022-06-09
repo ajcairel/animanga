@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import './MyProfilePage.css';
 
 import AnimeListPage from "../AnimeListPage/AnimeListPage";
 import MangaListPage from "../MangaListPage/MangaListPage";
@@ -19,7 +20,10 @@ export default function MyProfilePage({user}) {
 
                 <button onClick={() => setView(false)}>View My Manga</button>
                 <br />
-                <AnimeListPage />
+                <div className="animes">
+                    <AnimeListPage />
+
+                </div>
             </>
 
             :
