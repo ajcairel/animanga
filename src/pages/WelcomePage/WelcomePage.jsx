@@ -5,7 +5,9 @@ import * as mangaAPI from '../../utilities/manga-api';
 import AnimeCard from "../../components/Cards/AnimeCard";
 import MangaCard from "../../components/Cards/MangaCard";
 import AuthPage from "../AuthPage/AuthPage";
+import './WelcomePage.css';
 export default function WelcomePage({setUser}) {
+
 
     const [auth, setAuth] = useState(false);
     const [topAnime, setTopAnime] = useState([]);
@@ -67,7 +69,17 @@ export default function WelcomePage({setUser}) {
     return (
         
         <>
-        { auth ? 
+
+        <AuthPage setUser={setUser} />
+        <h1>Top 10</h1>
+            <button onClick={() => setAuth(true)}>Click Here To Log In or Sign Up</button>
+            <div className="manga-list">
+                {topAnime.map((anime) => <AnimeCard anime={anime} key={anime.mal_id}/>)}
+                {topManga.map((manga) => <MangaCard manga={manga} key={manga.mal_id}/>)}
+            </div>
+            <div className="manga-list">
+            </div>
+        {/* { auth ? 
             <AuthPage setUser={setUser} />
             :
             
@@ -83,7 +95,7 @@ export default function WelcomePage({setUser}) {
 
 
            
-        </>}
+        </>} */}
             </>
     );
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import AuthPage from '../AuthPage/AuthPage';
@@ -42,6 +42,7 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           
+          
           {/* <div className="manga-list">
                 {topAnime.map((anime) => <AnimeCard anime={anime} key={anime.mal_id}/>)}
                 {topManga.map((manga) => <MangaCard manga={manga} key={manga.mal_id}/>)}
@@ -49,6 +50,8 @@ function App() {
           {/* <WelcomePage setUser={setUser}/> */}
           <Routes>
             {/* Route components in here */}
+
+            <Route path ="/" element={<AnimeSearchPage /> } />
             <Route path ="/auth" element={<AuthPage setUser={setUser} /> }/>
             <Route path="/orderhistory" element={<OrderHistoryPage />} />
             <Route path="/search/anime" element={<AnimeSearchPage />} />
@@ -61,6 +64,8 @@ function App() {
             <Route path="/profile/mine" element ={<MyProfilePage user={user}/>}/>
             {/* <Route path="/profile/:user" element ={<UserProfilePage user={user}/>}/> */}
             <Route path="/profile/:user" element ={<UserProfilePage/>}/>
+            <Route path="/*" element={<Navigate to="/" />} />
+
           </Routes>
         </>
         :
@@ -68,6 +73,7 @@ function App() {
           <WelcomePage setUser={setUser}/>
       }
     </main>
+    
   );
 }
 

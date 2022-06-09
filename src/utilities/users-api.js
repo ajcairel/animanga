@@ -18,7 +18,11 @@ export function checkToken() {
 }
 
 export function getUsers() {
-    return sendRequest(`${BASE_URL}/users`)
+    return sendRequest(`${BASE_URL}/users`);
+}
+
+export function getProfileUser(params) {
+    return sendRequest(`${BASE_URL}/profile/user`, "POST", {params});
 }
 
 

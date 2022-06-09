@@ -8,12 +8,17 @@ import MangaListPage from "../MangaListPage/MangaListPage";
 export default function MyProfilePage({user}) {
     const [view, setView] = useState(null);
     const [refresh, setRefresh] = useState(true);
+
+
+    console.log(user);
     // const {user} = useParams();
 
 
 
     return (
-        <> 
+       <>
+        
+
         { view ? 
             <> 
                 <h1>{user.name}'s Anime</h1>

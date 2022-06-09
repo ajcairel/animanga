@@ -1,0 +1,11 @@
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background-image: url('https://i.pinimg.com/originals/15/e4/d6/15e4d6953e5a356788217d1bd978d931.jpg');
+    background-position: center;
+
+}

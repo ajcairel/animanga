@@ -6,7 +6,8 @@ module.exports = {
   create,
   login,
   checkToken,
-  getUsers
+  getUsers,
+  getProfileUser
 };
 
 function checkToken(req, res) {
@@ -42,9 +43,19 @@ async function create(req, res) {
 
 async function getUsers(req, res) {
   const users = await User.find({});
-  console.log(users);
+  //console.log(users);
   res.json(users);
+}
 
+async function getProfileUser(req, res) {
+  // const user = await User.find({_id: req.body.params});
+  console.log(req.body.params);
+  // console.log('wtf');
+
+  // console.log(req.body);
+  const user = await User.find({_id: req.body.params});
+  console.log(user);
+  res.json(user);
 }
 
 /*-- Helper Functions --*/

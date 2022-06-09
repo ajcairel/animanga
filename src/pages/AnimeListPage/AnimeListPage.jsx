@@ -3,7 +3,7 @@ import * as animeAPI from "../../utilities/anime-api";
 import AnimeListCard from "../../components/Cards/AnimeListCard";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 import './AnimeListPage.css';
 export default function AnimeListPage() {
   const [anime, setAnime] = useState([]);

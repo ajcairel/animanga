@@ -14,4 +14,6 @@ router.post('/login', usersCtrl.login);
 
 router.get('/users', usersCtrl.getUsers);
 
+router.post('/profile/user', usersCtrl.getProfileUser);
+
 module.exports = router;
