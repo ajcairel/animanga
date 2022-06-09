@@ -53,7 +53,7 @@ async function getProfileUser(req, res) {
   // console.log('wtf');
 
   // console.log(req.body);
-  const user = await User.find({_id: req.body.params});
+  const user = await User.findOne({_id: req.body.params});
   console.log(user);
   res.json(user);
 }

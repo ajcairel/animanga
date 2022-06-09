@@ -16,11 +16,10 @@ export default function UserProfilePage() {
   const { user } = useParams();
   const [anime, setAnime] = useState([]);
   const [manga, setManga] = useState([]);
-  const [userProfile, setUserProfile] = useState();
+  const [userProfile, setUserProfile] = useState(null);
 
   useEffect(() => {
     const getAnime = async () => {
-      console.log('pls');
 
       const animes = await animeAPI.getProfileAnime(user);
       setAnime(animes);
@@ -30,17 +29,15 @@ export default function UserProfilePage() {
 
   useEffect(() => {
     const getManga = async () => {
-      console.log('pls');
 
       const mangas = await mangaAPI.getProfileManga(user);
       setManga(mangas);
     };
     getManga();
   }, []);
-
+  
   useEffect(() => {
     const getUser = async () => {
-      console.log('pls');
       const person = await userAPI.getProfileUser(user);
       console.log(person);
       setUserProfile(person);
@@ -48,19 +45,17 @@ export default function UserProfilePage() {
     
     getUser();
   }, []);
-
-
-
-console.log(userProfile);
   
-
-
+  console.log(userProfile);
+  
+  if (!userProfile) return null;
+  
   return (
     <>
       {view ? (
         <>
           
-          <h1>{userProfile[0].name}Anime</h1>
+          <h1>{userProfile.name}'s Anime</h1>
           <button onClick={() => setView(!view)}>View Their Manga</button>
           <Row xs={2} md={3} className="g-4 my-auto">
             {anime.map((anime, idx) => (
@@ -70,7 +65,7 @@ console.log(userProfile);
         </>
       ) : (
         <>
-          <h1>{user.name}'s Manga</h1>
+          <h1>{userProfile.name}'s Manga</h1>
           <button onClick={() => setView(true)}>View Their Anime</button>
           <Row xs={2} md={3} className="g-4 my-auto">
             {manga.map((manga, idx) => (
