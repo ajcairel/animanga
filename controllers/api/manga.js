@@ -36,7 +36,12 @@ async function removeManga(req, res) {
 }
 
 async function search(req, res) {
-    const anime = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=title&sort=asc&limit=12`
+    // const anime = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=title&sort=asc&limit=48`
+    // const anime = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=title&sort=desc&limit=48`
+    // const anime = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=title&limit=48`
+    // const anime = await fetch(`https://api.jikan.moe/v4/anime?q=${req.body.query}&order_by=ranking&limit=12&type=tv`
+    // const anime = await fetch(`https://api.jikan.moe/v4/anime?q=${req.body.query}&order_by=ranking`
+    const anime = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=ranking`
     ).then(res => res.json());
     res.json(anime.data);
 }

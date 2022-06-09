@@ -85,7 +85,6 @@ export default function MangaDetailPage() {
               <Card.Img variant="top" src={specificManga.image} />
               <Card.Body>
                 <Card.Title>{specificManga.title}</Card.Title>
-                <Card.Text>{moreInfo.synopsis}</Card.Text>
                 <Card.Text>{specificManga.duration}</Card.Text>
               </Card.Body>
             </Card>
