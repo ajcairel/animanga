@@ -24,16 +24,20 @@ export default function TopAnime() {
         <Row xs={2} md={3} lg={2} className="cards">
           {topAnime.map((anime, idx) => (
             <Card style={{ width: "15rem" }}>
-              <Card.Img variant="top" src={anime.images.jpg.image_url} style={{ height: "20rem" }}/>
-              <Card.Body style={{height: "5rem" }}>
+              <Card.Img
+                variant="top"
+                src={anime.images.jpg.image_url}
+                style={{ height: "20rem" }}
+              />
+              <Card.Body style={{ height: "5rem" }}>
                 <Card.Title>{anime.title}</Card.Title>
               </Card.Body>
               <Card.Body>
                 <Link to={`/anime/${anime.mal_id}`}>Anime Details</Link>
               </Card.Body>
               <Card.Footer>
-      <small className="text-muted">Rank: {idx + 1}</small>
-    </Card.Footer>
+                <small className="text-muted">Rank: {idx + 1}</small>
+              </Card.Footer>
             </Card>
           ))}
         </Row>

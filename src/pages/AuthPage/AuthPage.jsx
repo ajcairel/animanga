@@ -7,12 +7,20 @@ export default function AuthPage({ setUser }) {
   const [showSignUp, setShowSignUp] = useState(false);
   return (
     <main>
-      <h1>AuthPage</h1>
-      <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'New User? Sign Up!'}</button>
+      <h1>Welcome to MyAniManga List</h1>
+      {/* <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'New User? Sign Up!'}</button> */}
       { showSignUp ?
-          <SignUpForm setUser={setUser} />
+      <>
+      <SignUpForm setUser={setUser} setShowSignUp={setShowSignUp} showSignUp={setShowSignUp}/>
+      <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'New User? Sign Up!'}</button>
+      
+      </>
           :
+          <>
+          
           <LoginForm setUser={setUser} />
+          <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'New User? Sign Up!'}</button>
+          </>
       }
     </main>
   );

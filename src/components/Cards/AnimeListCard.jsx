@@ -23,7 +23,7 @@ export default function AnimeListCard({ anime, refresh, setRefresh }) {
     setDeleted(!deleted);
   }
 
-  return (
+  return ( 
     <>
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src={anime.image} />

@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
@@ -11,7 +11,7 @@
 
 *, *:before, *:after {
   box-sizing: border-box;
-}
+} */
 
 body {
   margin: 0;
@@ -23,9 +23,11 @@ body {
   background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
+  /* background-image: url('https://cutewallpaper.org/21/pink-aesthetic-anime-wallpapers/1920x1080-Aesthetic-Anime-Wallpaper-Smokinwingsspartanburg.com.jpg'); */
+  background-image: url('https://i.pinimg.com/originals/01/9e/ff/019effebf4db2ca7d99231b41c9c241b.jpg');
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
@@ -77,17 +79,17 @@ code {
   font-size: 2vmin;
 }
 
-.form-container {
+ .form-container {
   padding: 3vmin;
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
-}
+} 
 
 p.error-message {
   color: var(--orange);
   text-align: center;
-}
+} */
 
 /* form {
   display: grid;
@@ -96,27 +98,26 @@ p.error-message {
   color: var(--text-light);
 } */
 
-label {
+/* label {
   font-size: 2vmin;
   display: flex;
   align-items: center;
-}
+} */
 
-input {
+/* input {
   padding: 1vmin;
   font-size: 2vmin;
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);
   background-image: none !important; /* prevent lastpass */
-  outline: none;
-}
+  /* outline: none; }*/
 
-input:focus {
+/* input:focus {
   border-color: var(--orange);
-}
+} */
 
-button, a.button {
+/* button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
@@ -129,19 +130,19 @@ button, a.button {
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
-}
+} */
 
-button.btn-sm {
+/* button.btn-sm {
   font-size: 1.5vmin;
   padding: .6vmin .8vmin;
-}
+} */
 
-button.btn-xs {
+/* button.btn-xs {
   font-size: 1vmin;
   padding: .4vmin .5vmin;
-}
+} */
 
-button:disabled, form:invalid button[type="submit"] {
+/* button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
   background-color: var(--tan-4);
 }
@@ -149,4 +150,4 @@ button:disabled, form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
-}
+} */

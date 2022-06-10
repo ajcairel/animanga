@@ -4,7 +4,7 @@ export default function AnimeCard({ anime }) {
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={anime.images.jpg.image_url} />
-      <Card.Body>
+      <Card.Body style={{ backgroundColor: "white" }}>
         <Card.Title>{anime.title}</Card.Title>
       </Card.Body>
       <Card.Body>
