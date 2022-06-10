@@ -75,13 +75,30 @@ export default function MangaDetailPage({user}) {
               <Card.Img variant="top" src={specificManga.image} />
               <Card.Body>
                 <Card.Title>{specificManga.title}</Card.Title>
-                <Card.Text>{specificManga.duration}</Card.Text>
+                <Card.Text>Status: {moreInfo.status}</Card.Text>
+
+              </Card.Body>
+            </Card>
+          <Card style={{ width: "35rem" }}>
+              <Card.Body>
+                <Card.Text > {moreInfo.synopsis} </Card.Text>
               </Card.Body>
             </Card>
 
           </div>
+          <div className="info">
 
-          {moreInfo.synopsis}
+          </div>
+          {/* <Card style={{ width: "35rem" }}>
+              <Card.Img variant="top" src={specificManga.image} />
+              <Card.Body>
+                <Card.Title>{specificManga.title}</Card.Title>
+                <Card.Text>{specificManga.duration}</Card.Text>
+                <Card.Text > {moreInfo.synopsis} </Card.Text>
+              </Card.Body>
+            </Card> */}
+
+      
 
           <Modal
             show={show}
