@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as usersService from '../../utilities/users-service';
 import './LoginForm.css';
 
@@ -8,6 +9,7 @@ export default function LoginForm({ setUser }) {
     password: ''
   });
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -23,14 +25,17 @@ export default function LoginForm({ setUser }) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
-    } catch {
+      // navigate('/');
+      navigate(`${user.name}/manga`);
+    } catch(e) {
+      console.log(e);
       setError('Log In Failed - Try Again');
     }
   }
 
   return (
     <>
-    <div>
+    {/* <div>
       <div className="form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <label>Email</label>
@@ -41,27 +46,32 @@ export default function LoginForm({ setUser }) {
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
-    </div>
+    </div> */}
 
-    <div class="login-box">
-  <h2>Login</h2>
-  <form>
+
+
+<div class="login-box">
+        <h2>Welcome Back</h2>
+  <h6>＼（＾○＾）人（＾○＾）／</h6>
+
+     
+  <form autoComplete="off" onSubmit={handleSubmit}>
     <div class="user-box">
-      <input type="text" name="" required=""/ >
-      <label>Username</label>
+      <input type="text" name="email"  value={credentials.email} onChange={handleChange}required />
+      <label>Email</label>
     </div>
     <div class="user-box">
-      <input type="password" name="" required=""/>
+      <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+
       <label>Password</label>
     </div>
-    <a href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      Submit
-    </a>
+  
+   
+    <button className="button" type="submit" >Log In</button>
+
+
   </form>
+  <p className="error-message">&nbsp;{error}</p>
 </div>
     
     </>

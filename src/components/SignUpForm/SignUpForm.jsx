@@ -58,7 +58,9 @@ export default class SignUpForm extends Component {
         <p className="error-message">&nbsp;{this.state.error}</p>
       </div> */}
       <div class="login-box">
-  <h2>Login</h2>
+        <h2>Join AniManga</h2>
+  <h6>┏(＾0＾)┛┗(＾0＾) ┓</h6>
+
      
   <form autoComplete="off" onSubmit={this.handleSubmit}>
     <div class="user-box">
@@ -89,6 +91,7 @@ export default class SignUpForm extends Component {
     
 
   </form>
+  <p className="error-message">&nbsp;{this.state.error}</p>
 </div>
     </>
     );

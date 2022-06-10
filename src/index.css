@@ -20,7 +20,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  /* background-color: var(--tan-4); */
   padding: 2vmin;
   height: 100vh;
   /* background-image: url('https://cutewallpaper.org/21/pink-aesthetic-anime-wallpapers/1920x1080-Aesthetic-Anime-Wallpaper-Smokinwingsspartanburg.com.jpg'); */

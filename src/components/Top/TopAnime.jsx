@@ -5,7 +5,7 @@ import AnimeCard from "../../components/Cards/AnimeCard";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import { Card } from "react-bootstrap";
-import "./Top.css";
+
 
 export default function TopAnime() {
   const [topAnime, setTopAnime] = useState([]);

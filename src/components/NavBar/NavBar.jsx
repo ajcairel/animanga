@@ -92,6 +92,9 @@ export default function NavBar({ user, setUser }) {
             <Nav.Link eventKey="3" as={Link} to="/profiles">
               All Profiles
             </Nav.Link>
+            <Nav.Link eventKey="4" as={Link} to="/auth">
+              Log In or Sign Up
+            </Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link eventKey={1} onClick={refreshPage}>

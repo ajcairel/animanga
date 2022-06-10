@@ -93,6 +93,7 @@ function App() {
         {/* <WelcomePage setUser={setUser} /> */}
         <Routes>
             <Route path="/" element={<TopPage />} />
+            <Route path="/auth" element={<AuthPage setUser={setUser} />} />
             <Route path="/orderhistory" element={<OrderHistoryPage />} />
             <Route path="/search/anime" element={<AnimeSearchPage />} />
             <Route path="/search/manga" element={<MangaSearchPage />} />
