@@ -18,11 +18,11 @@ async function getDetails(req,res) {
     const anime = await fetch(`https://api.jikan.moe/v4/anime/${req.body.params}`
     ).then(res => res.json());
         // console.log(anime);
-        res.json(anime);
+        res.json(anime.data);
 }
 
 async function getTop(req, res) {
-    const animes = await fetch('https://api.jikan.moe/v4/top/anime?limit=10'
+    const animes = await fetch('https://api.jikan.moe/v4/top/anime?limit=24'
             ).then(res => res.json());
             res.json(animes)
 

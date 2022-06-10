@@ -9,7 +9,7 @@ import './MangaDetailPage.css';
 
 export default function MangaDetailPage() {
   const [specificManga, setSpecificManga] = useState('');
-  const [moreInfo, setMoreInfo] = useState("");
+  const [moreInfo, setMoreInfo] = useState();
   const [added, setAdded] = useState(false);
   const [show, setShow] = useState(false);
   const { manId } = useParams();
@@ -17,32 +17,22 @@ export default function MangaDetailPage() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // useEffect(() => {
-  //   async function getManga() {
-  //     let specificManga = await fetch(
-  //       `https://api.jikan.moe/v4/manga/${manId}`
-  //     ).then((res) => res.json());
-  //     specificManga = specificManga.data;
-  //     const mangaObj = {
-  //       title: specificManga && specificManga.title,
-  //       mangaId: specificManga && specificManga.mal_id,
-  //       image:  specificManga && specificManga.images.jpg.image_url,
-  //       malURL: specificManga && specificManga.url
-  //     }
-  //     setSpecificManga(mangaObj);
-  //   }
-  //   getManga();
-  // }, [manId]);
+  const refresh = () => {
+    window.location.reload(true);
+    console.log('refreshed!');
+  }
+
 
   useEffect(() => {
     async function getManga() {
       let specificManga = await mangaAPI.getDetails(manId);
       const checked = await mangaAPI.isAdded(manId);
-      console.log(checked.length);
-      if(checked.length) {
+      console.log(checked);
+      // refresh();
+      if(checked) {
         setAdded(!added)
       }
-      specificManga = specificManga.data;
+      // specificManga = specificManga.data;
       setMoreInfo(specificManga);
       const mangaObj = {
         title: specificManga && specificManga.title,
@@ -55,7 +45,7 @@ export default function MangaDetailPage() {
     getManga();
   }, [manId]);
 
-
+  
 
   
   async function handleAddManga() {
@@ -71,7 +61,7 @@ export default function MangaDetailPage() {
 
   return (
     <div>
-      {specificManga && (
+      {moreInfo && specificManga && (
         <>
         <h1>{specificManga.title}</h1>
         {/* <h2>

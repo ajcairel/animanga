@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import { useState, useEffect } from "react";
 import * as iconAPI from '../../utilities/icon-api';
+import './UserCard.css';
 export default function UserCard({user}) {
 
   const [pfp, setPfp] = useState();
@@ -11,7 +12,7 @@ export default function UserCard({user}) {
   useEffect(() => {
     async function getIcon() {
       const icon = await iconAPI.getImage();
-      console.log(icon.url);
+      console.log('once', icon.url);
       
       setPfp(icon.url);
     }
@@ -31,7 +32,7 @@ export default function UserCard({user}) {
 
     return (
       <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={`${pfp}`} />
+      <Card.Img className="pfp" variant="top" src={`${pfp}`} />
       <Card.Body>
         <Card.Title>{user.name}</Card.Title>
         {/* <Card.Text>

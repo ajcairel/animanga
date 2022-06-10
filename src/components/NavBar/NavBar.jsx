@@ -6,6 +6,10 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Container } from "react-bootstrap";
 
 export default function NavBar({ user, setUser }) {
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
   function handleLogOut() {
     // Remove token using the user service
     userService.logOut();
@@ -16,10 +20,10 @@ export default function NavBar({ user, setUser }) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       {/* <Container> */}
-      <Navbar.Brand href="#home">
+      <Navbar.Brand>
         <img
           alt=""
-          src="/logo.svg"
+          src="https://cdn-icons-png.flaticon.com/512/1531/1531041.png"
           width="30"
           height="30"
           className="d-inline-block align-top"
@@ -50,10 +54,9 @@ export default function NavBar({ user, setUser }) {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
+            {/* <Nav.Link eventKey={1} onClick={refreshPage}>
+              Refresh
+            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       {/* </Container> */}

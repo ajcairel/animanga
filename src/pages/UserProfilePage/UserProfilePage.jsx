@@ -12,7 +12,7 @@ import AnimeListPage from "../AnimeListPage/AnimeListPage";
 import MangaListPage from "../MangaListPage/MangaListPage";
 
 export default function UserProfilePage() {
-  const [view, setView] = useState(true);
+  const [view, setView] = useState('anime');
   const { user } = useParams();
   const [anime, setAnime] = useState([]);
   const [manga, setManga] = useState([]);
@@ -52,11 +52,11 @@ export default function UserProfilePage() {
   
   return (
     <>
-      {view ? (
+      {view === 'anime' ? (
         <>
           
           <h1>{userProfile.name}'s Anime</h1>
-          <button onClick={() => setView(!view)}>View Their Manga</button>
+          <button onClick={() => setView('manga')}>View Their Manga</button>
           <Row xs={2} md={3} className="g-4 my-auto">
             {anime.map((anime, idx) => (
               <ProfileAnimeCard anime={anime} key={idx} />
@@ -66,7 +66,7 @@ export default function UserProfilePage() {
       ) : (
         <>
           <h1>{userProfile.name}'s Manga</h1>
-          <button onClick={() => setView(true)}>View Their Anime</button>
+          <button onClick={() => setView('anime')}>View Their Anime</button>
           <Row xs={2} md={3} className="g-4 my-auto">
             {manga.map((manga, idx) => (
               <ProfileMangaCard manga={manga} key={idx} />

@@ -24,7 +24,8 @@ export default function ProfilesPage() {
 
     return (
         <>
-            <Row xs={2} md={3} className="g-4 my-auto">
+            <h1>Fellow Weebs</h1>
+            <Row xs={2} md={3} >
                 {users.map((user, idx) => <UserCard user={user} key={idx}/>)}
             </Row>
         </>

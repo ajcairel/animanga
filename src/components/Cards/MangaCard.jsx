@@ -9,10 +9,6 @@ export default function MangaCard({ manga }) {
       <Card.Img variant="top" src={manga.images.jpg.image_url} />
       <Card.Body>
         <Card.Title>{manga.title}</Card.Title>
-        {/* <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text> */}
       </Card.Body>
       <Card.Body>
         <Link to={`/manga/${manga.mal_id}`}>Manga Details</Link>

@@ -9,15 +9,13 @@ export default function MangaSearchPage() {
   // for the list of manga to render
   const [mangaList, setMangaList] = useState([]);
 
-  function handleMangaSearch(e) {
+  async function handleMangaSearch(e) {
     e.preventDefault();
-    fetchManga(mangaSearch);
+    const manga = await mangaAPI.search(mangaSearch);
+    setMangaList(manga);
   }
 
-    const fetchManga = async (search) => {
-        const manga = await mangaAPI.search(search);
-        setMangaList(manga);
-    }
+   
 
   // const fetchManga = async (search) => {
   //   const manga = await fetch(

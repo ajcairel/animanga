@@ -15,15 +15,25 @@ const API_URL = 'https://api.jikan.moe/v4/'
 
 
 async function getDetails(req,res) {
-    const manga = await fetch(`https://api.jikan.moe/v4/manga/${req.body.params}`
-    ).then(res => res.json());
-        console.log(manga);
-        res.json(manga);
+    // const manga = await fetch(`https://api.jikan.moe/v4/manga/${req.body.params}`
+    // ).then(res => res.json());
+    //     console.log(manga);
+    //     res.json(manga);
+
+        try {
+            const manga = await fetch(`https://api.jikan.moe/v4/manga/${req.body.params}`
+            ).then(res => res.json());
+            // The token is a string, but yes, we can
+            // res.json a string
+            res.json(manga.data);
+          } catch (err) {
+            res.status(400).json(err);
+          }
 }
 
 
 async function getTop(req, res) {
-    const mangas = await fetch('https://api.jikan.moe/v4/top/manga?limit=10'
+    const mangas = await fetch('https://api.jikan.moe/v4/top/manga?limit=24'
             ).then(res => res.json());
             res.json(mangas)
 
@@ -41,13 +51,13 @@ async function search(req, res) {
     // const anime = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=title&limit=48`
     // const anime = await fetch(`https://api.jikan.moe/v4/anime?q=${req.body.query}&order_by=ranking&limit=12&type=tv`
     // const anime = await fetch(`https://api.jikan.moe/v4/anime?q=${req.body.query}&order_by=ranking`
-    const anime = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=ranking`
+    const manga = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=ranking`
     ).then(res => res.json());
-    res.json(anime.data);
+    res.json(manga.data);
 }
 
 async function isAdded(req, res) {
-    const found = await Manga.find({users: req.user._id, mangaId: req.body.params});
+    const found = await Manga.findOne({users: req.user._id, mangaId: req.body.params});
     console.log('found: ', found);
     console.log('body: ', req.user);
     console.log('params: ', req.body.params);

@@ -34,15 +34,15 @@ export default function WelcomePage({setUser}) {
     // }, []);
 
 
-    useEffect(() => {
-        async function getTop() {
-            const topAnime = await animeAPI.getTop()
-            setTopAnime(topAnime.data);
-            const topManga = await mangaAPI.getTop();
-            setTopManga(topManga.data);
-        }
-        getTop();
-    }, []);
+    // useEffect(() => {
+    //     async function getTop() {
+    //         const topAnime = await animeAPI.getTop()
+    //         setTopAnime(topAnime.data);
+    //         const topManga = await mangaAPI.getTop();
+    //         setTopManga(topManga.data);
+    //     }
+    //     getTop();
+    // }, []);
 
     
     
@@ -71,14 +71,14 @@ export default function WelcomePage({setUser}) {
         <>
 
         <AuthPage setUser={setUser} />
-        <h1>Top 10</h1>
+        {/* <h1>Top 10</h1>
             <button onClick={() => setAuth(true)}>Click Here To Log In or Sign Up</button>
             <div className="manga-list">
                 {topAnime.map((anime) => <AnimeCard anime={anime} key={anime.mal_id}/>)}
                 {topManga.map((manga) => <MangaCard manga={manga} key={manga.mal_id}/>)}
             </div>
             <div className="manga-list">
-            </div>
+            </div> */}
         {/* { auth ? 
             <AuthPage setUser={setUser} />
             :

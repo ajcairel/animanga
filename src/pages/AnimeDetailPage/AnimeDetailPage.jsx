@@ -17,24 +17,6 @@ export default function AnimeDetailPage() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // useEffect(() => {
-  //   async function getAnime() {
-  //     let specificAnime = await fetch(
-  //       `https://api.jikan.moe/v4/anime/${aniId}`
-  //     ).then((res) => res.json());
-  //     specificAnime = specificAnime.data;
-
-  //     const animeObj = {
-  //       title: specificAnime && specificAnime.title,
-  //       animeId: specificAnime && specificAnime.mal_id,
-  //       image: specificAnime && specificAnime.images.jpg.image_url,
-  //       malURL: specificAnime && specificAnime.url,
-  //     };
-  //     setSpecificAnime(animeObj);
-  //     console.log(specificAnime);
-  //   }
-  //   getAnime();
-  // }, [aniId]);
 
   
   useEffect(() => {
@@ -45,21 +27,25 @@ export default function AnimeDetailPage() {
       if(checked.length) {
         setAdded(!added)
       }
-      specificAnime = specificAnime.data;
+      // specificAnime = specificAnime.data;
       setMoreInfo(specificAnime);
 
       const animeObj = {
-        title: specificAnime && specificAnime.title,
-        animeId: specificAnime && specificAnime.mal_id,
-        image: specificAnime && specificAnime.images.jpg.image_url,
-        malURL: specificAnime && specificAnime.url,
+        // title: specificAnime && specificAnime.title,
+        // animeId: specificAnime && specificAnime.mal_id,
+        // image: specificAnime && specificAnime.images.jpg.image_url,
+        // malURL: specificAnime && specificAnime.url,
+        title: specificAnime.title,
+        animeId: specificAnime.mal_id,
+        image: specificAnime.images.jpg.image_url,
+        malURL:  specificAnime.url,
       };
       setSpecificAnime(animeObj);
       // console.log('hello', specificAnime);
 
     }
     getAnime();
-  }, [aniId]);
+  }, []);
 
   async function check() {
     const checked = await animeAPI.isAdded(aniId);
