@@ -22,11 +22,14 @@ export default function AnimeDetailPage({user}) {
   useEffect(() => {
     async function getAnime() {
       let specificAnime = await animeAPI.getDetails(aniId);
-      const checked = await animeAPI.isAdded(aniId);
-      console.log(checked);
-      if(checked) {
-        setAdded(!added)
+      if(user) {
+        const checked = await animeAPI.isAdded(aniId);
+        if(checked) {
+          setAdded(!added)
+        }
+
       }
+      // console.log(checked);
       // specificAnime = specificAnime.data;
       setMoreInfo(specificAnime);
 
@@ -67,9 +70,44 @@ export default function AnimeDetailPage({user}) {
           {/* <h2>
             <Link to="/search/anime">Back To Search Anime</Link>
           </h2> */}
+          {user ? (
+        <>
+         <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Added!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>{specificAnime.title} has been added to your anime list!</Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" as={Link} to={`/${user.name}/anime`}>
+                My Anime List
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        
           <Button variant="success" onClick={handleAddAnime} disabled={added}>
             {added ? 'Added' : 'Add To My List'}
           </Button>
+         
+        </>
+      ) : (
+        // <AuthPage setUser={setUser} />
+        
+          <Button variant="success" as={Link} to="/auth">
+            Log In To Add!
+          </Button>
+        
+      )}
+          {/* <Button variant="success" onClick={handleAddAnime} disabled={added}>
+            {added ? 'Added' : 'Add To My List'}
+          </Button> */}
           <div className="info">
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={specificAnime.image} />
@@ -102,7 +140,7 @@ export default function AnimeDetailPage({user}) {
           <Button variant="primary" onClick={handleShow}>
             Launch static backdrop modal
           </Button> */}
-          <Modal
+          {/* <Modal
             show={show}
             onHide={handleClose}
             backdrop="static"
@@ -120,7 +158,7 @@ export default function AnimeDetailPage({user}) {
                 My Anime List
               </Button>
             </Modal.Footer>
-          </Modal>
+          </Modal> */}
         </>
       )}
     </div>

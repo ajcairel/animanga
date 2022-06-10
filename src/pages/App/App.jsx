@@ -88,7 +88,25 @@ function App() {
         </>
       ) : (
         // <AuthPage setUser={setUser} />
-        <WelcomePage setUser={setUser} />
+        <>
+        <NavBar user={user} setUser={setUser} />
+        {/* <WelcomePage setUser={setUser} /> */}
+        <Routes>
+            <Route path="/" element={<TopPage />} />
+            <Route path="/orderhistory" element={<OrderHistoryPage />} />
+            <Route path="/search/anime" element={<AnimeSearchPage />} />
+            <Route path="/search/manga" element={<MangaSearchPage />} />
+            <Route path="anime/:aniId" element={<AnimeDetailPage user={user}/>} />
+            <Route path="manga/:manId" element={<MangaDetailPage user={user}/>} />
+            <Route path="/orders/new" element={<NewOrderPage />} />
+            {/* <Route path="/profiles" element ={<ProfilesPage user={user}/>}/> */}
+            <Route path="/profiles" element={<ProfilesPage />} />
+            {/* <Route path="/profile/:user" element ={<UserProfilePage user={user}/>}/> */}
+            <Route path="/profile/:user" element={<UserProfilePage />} />
+            <Route path="/*" element={<Navigate to="/profiles" />} />
+          </Routes>
+        
+        </>
       )}
     </main>
   );

@@ -26,12 +26,16 @@ export default function MangaDetailPage({user}) {
   useEffect(() => {
     async function getManga() {
       let specificManga = await mangaAPI.getDetails(manId);
-      const checked = await mangaAPI.isAdded(manId);
-      console.log(checked);
-      // refresh();
-      if(checked) {
-        setAdded(!added)
+
+      if (user) {
+        const checked = await mangaAPI.isAdded(manId);
+        if(checked) {
+          setAdded(!added)
+        }
+        
       }
+      // console.log(checked);
+      // refresh();
       // specificManga = specificManga.data;
       setMoreInfo(specificManga);
       const mangaObj = {
@@ -67,9 +71,41 @@ export default function MangaDetailPage({user}) {
         {/* <h2>
             <Link to="/search/manga">Back To Search Manga</Link>
           </h2> */}
+          {user ? (
+        <>
+         <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Added!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>{specificManga.title} has been added to your manga list!</Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" as={Link} to={`/${user.name}/manga`}>
+                My Manga List
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        
           <Button variant="success" onClick={handleAddManga} disabled={added}>
             {added ? 'Added' : 'Add To My List'}
           </Button>
+         
+        </>
+      ) : (
+        // <AuthPage setUser={setUser} />
+        
+          <Button variant="success" as={Link} to="/auth">
+            Log In To Add!
+          </Button>
+        
+      )}
           <div className="info">
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={specificManga.image} />
@@ -100,7 +136,7 @@ export default function MangaDetailPage({user}) {
 
       
 
-          <Modal
+          {/* <Modal
             show={show}
             onHide={handleClose}
             backdrop="static"
@@ -119,7 +155,7 @@ export default function MangaDetailPage({user}) {
               </Button>
             </Modal.Footer>
           </Modal>
-        
+         */}
         
         {/* <article className="manga-card">
           <a href={specificManga.url} target="_blank" rel="noreferrer">
