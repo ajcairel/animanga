@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import './AnimeDetailPage.css';
 import * as animeAPI from "../../utilities/anime-api";
 
-export default function AnimeDetailPage() {
+export default function AnimeDetailPage({user}) {
   const [specificAnime, setSpecificAnime] = useState();
   const [moreInfo, setMoreInfo] = useState();
   const [added, setAdded] = useState(false);
@@ -23,8 +23,8 @@ export default function AnimeDetailPage() {
     async function getAnime() {
       let specificAnime = await animeAPI.getDetails(aniId);
       const checked = await animeAPI.isAdded(aniId);
-      console.log(checked.length);
-      if(checked.length) {
+      console.log(checked);
+      if(checked) {
         setAdded(!added)
       }
       // specificAnime = specificAnime.data;
@@ -116,8 +116,8 @@ export default function AnimeDetailPage() {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" as={Link} to="/profile/mine">
-                My Lists
+              <Button variant="primary" as={Link} to={`/${user.name}/anime`}>
+                My Anime List
               </Button>
             </Modal.Footer>
           </Modal>

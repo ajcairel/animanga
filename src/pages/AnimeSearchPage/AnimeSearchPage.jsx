@@ -13,9 +13,11 @@ export default function AnimeSearchPage() {
   // for the list of anime to render
   const [animeList, setAnimeList] = useState([]);
 
-  function handleAnimeSearch(e) {
+  async function handleAnimeSearch(e) {
     e.preventDefault();
-    fetchAnime(animeSearch);
+    const anime = await animeAPI.search(animeSearch);
+    setAnimeList(anime);
+    console.log(animeList);
   }
 
   const fetchAnime = async (search) => {
@@ -46,33 +48,31 @@ export default function AnimeSearchPage() {
                 value={animeSearch}
                 onChange={(e) => setAnimeSearch(e.target.value)}
               />
-              <Button variant="secondary" type="submit" size="lg">Primary</Button>
+              <button type="submit">search</button>
             </form>
           </Col>
         </Row>
       </Container>
 
-      {/* <form className="search-box" onSubmit={handleAnimeSearch}>
-        <input
-          type="search"
-          placeholder="Search for an anime..."
-          required
-          value={animeSearch}
-          onChange={(e) => setAnimeSearch(e.target.value)}
-        />
-      </form> */}
+      { animeList.length > 1 ?
+          <Row xs={2} md={3} className="g-4 my-auto">
+          
+            {animeList.map((anime) => (
+              <AnimeCard anime={anime} key={anime.mal_id} />
+              ))}
+        
+          </Row>
+        :
+        
+        <h1 visibility="hidden"> </h1>
+      
 
-      <Row xs={2} md={3} className="g-4 my-auto">
-        {animeList.map((anime) => (
-          <AnimeCard anime={anime} key={anime.mal_id} />
-        ))}
-      </Row>
+        }
 
-      {/* <div className="anime-list">
-        {animeList.map((anime) => (
-          <AnimeCard anime={anime} key={anime.mal_id} />
-        ))}
-      </div> */}
+  
+
+
+     
     </>
   );
 }

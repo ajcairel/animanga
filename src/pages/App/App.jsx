@@ -12,6 +12,8 @@ import AnimeSearchPage from "../AnimeSearchPage/AnimeSearchPage";
 import MangaSearchPage from "../MangaSearchPage/MangaSearchPage";
 import AnimeDetailPage from "../AnimeDetailPage/AnimeDetailPage";
 import MangaDetailPage from "../MangaDetailPage/MangaDetailPage";
+import ProfileAnimePage from "../UserProfilePage/ProfileAnimePage";
+import ProfileMangaPage from "../UserProfilePage/ProfileMangaPage";
 import ProfilesPage from "../ProfilesPage/ProfilesPage";
 import MyProfilePage from "../UserProfilePage/MyProfilePage";
 import UserProfilePage from "../UserProfilePage/UserProfilePage";
@@ -58,14 +60,26 @@ function App() {
             <Route path="/orderhistory" element={<OrderHistoryPage />} />
             <Route path="/search/anime" element={<AnimeSearchPage />} />
             <Route path="/search/manga" element={<MangaSearchPage />} />
-            <Route path="anime/:aniId" element={<AnimeDetailPage />} />
-            <Route path="manga/:manId" element={<MangaDetailPage />} />
+            <Route path="anime/:aniId" element={<AnimeDetailPage user={user}/>} />
+            <Route path="manga/:manId" element={<MangaDetailPage user={user}/>} />
             <Route path="/orders/new" element={<NewOrderPage />} />
             {/* <Route path="/profiles" element ={<ProfilesPage user={user}/>}/> */}
             <Route path="/profiles" element={<ProfilesPage />} />
             <Route
               path="/profile/mine"
               element={<MyProfilePage user={user} />}
+            />
+            <Route
+              path={`${user.name}/manga`}
+              element={<ProfileMangaPage user={user} />}
+            />
+            <Route
+              path={`${user.name}/anime`}
+              element={<ProfileAnimePage user={user} />}
+            />
+            <Route
+              path="/profile/anime"
+              element={<ProfileAnimePage user={user} />}
             />
             {/* <Route path="/profile/:user" element ={<UserProfilePage user={user}/>}/> */}
             <Route path="/profile/:user" element={<UserProfilePage />} />

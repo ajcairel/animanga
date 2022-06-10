@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 import './MangaDetailPage.css';
 
 
-export default function MangaDetailPage() {
+export default function MangaDetailPage({user}) {
   const [specificManga, setSpecificManga] = useState('');
   const [moreInfo, setMoreInfo] = useState();
   const [added, setAdded] = useState(false);
@@ -97,8 +97,8 @@ export default function MangaDetailPage() {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" as={Link} to="/profile/mine">
-                My Lists
+              <Button variant="primary" as={Link} to={`/${user.name}/manga`}>
+                My Manga List
               </Button>
             </Modal.Footer>
           </Modal>

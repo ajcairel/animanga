@@ -3,10 +3,9 @@ import * as userService from "../../utilities/users-service";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Container } from "react-bootstrap";
+import "./NavBar.css";
 
 export default function NavBar({ user, setUser }) {
-
   function refreshPage() {
     window.location.reload(false);
   }
@@ -18,62 +17,52 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      {/* <Container> */}
-      <Navbar.Brand>
-        <img
-          alt=""
-          src="https://cdn-icons-png.flaticon.com/512/1531/1531041.png"
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-        />{' '}
-      AniManga
-      </Navbar.Brand>
+    <>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar.Brand>
+          <img
+            alt=""
+            src="https://cdn-icons-png.flaticon.com/512/1531/1531041.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{" "}
+          AniManga
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            {/* <Link to="/search/anime" className="nav-link">Search Anime</Link> */}
-            {/* <Link to="/search/manga" className="nav-link">Search Manga</Link> */}
-            {/* <Link to="/profile" className="nav-link">My Profile</Link> */}
-            <Nav.Link eventKey="1" as={Link} to="/search/anime">Search Anime</Nav.Link>
-            <Nav.Link eventKey="2" as={Link} to="/search/manga">Search Manga</Nav.Link>
-            <Nav.Link eventKey="3" as={Link} to="/profiles">All Profiles</Nav.Link>
-            {/* <Nav.Link eventKey="4" as={Link} to={`/profile/${user._id}`}>My Profile</Nav.Link> */}
-            <Nav.Link eventKey="5" as={Link} to="/profile/mine">My Profile</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item as={Link} to="" onClick={handleLogOut}>Log Out</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+            <Nav.Link eventKey="1" as={Link} to="/search/anime">
+              Search Anime
+            </Nav.Link>
+            <Nav.Link eventKey="2" as={Link} to="/search/manga">
+              Search Manga
+            </Nav.Link>
+            <Nav.Link eventKey="3" as={Link} to="/profiles">
+              All Profiles
+            </Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link eventKey={1} onClick={refreshPage}>
+              Refresh
+            </Nav.Link>
+            <NavDropdown
+              title={`${user.name}`}
+              id="collasible-nav-dropdown"
+              drop="start"
+            >
+              <NavDropdown.Item as={Link} to="/profile/mine">
+                My Profile
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <NavDropdown.Item as={Link} to="" onClick={handleLogOut}>
+                Log Out
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Nav>
-            {/* <Nav.Link eventKey={1} onClick={refreshPage}>
-              Refresh
-            </Nav.Link> */}
-          </Nav>
         </Navbar.Collapse>
-      {/* </Container> */}
-    </Navbar>
-
-    // <nav>
-    //   <Link to="/orders">Order History</Link>
-    //   &nbsp; | &nbsp;
-    //   <Link to="/orders/new">New Order</Link>
-    //   &nbsp; | &nbsp;
-    //   <Link to="/search/anime">Search Anime</Link>
-    //   &nbsp; | &nbsp;
-    //   <Link to={`/profile`}>My Stuff</Link>
-    //   &nbsp; | &nbsp;
-    //   <span>Welcome, {user.name}</span>
-    //   &nbsp; | &nbsp;
-    //   <Link to="" onClick={handleLogOut}>Log Out</Link>
-    // </nav>
+      </Navbar>
+    </>
   );
 }

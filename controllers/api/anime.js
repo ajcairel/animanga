@@ -30,6 +30,7 @@ async function getTop(req, res) {
 
 async function removeAnime(req, res) {
     let goodbye = await Anime.findOneAndUpdate({users: req.user._id, animeId: req.body.animeId}, { $pull: {users: req.user._id} });
+    console.log(req.body);
     await goodbye.save();
     res.json(goodbye);
 }
@@ -42,7 +43,7 @@ async function search(req, res) {
 }
 
 async function isAdded(req, res) {
-    const found = await Anime.find({users: req.user._id, animeId: req.body.params});
+    const found = await Anime.findOne({users: req.user._id, animeId: req.body.params});
     console.log('found: ', found);
     console.log('body: ', req.user);
     console.log('params: ', req.body.params);

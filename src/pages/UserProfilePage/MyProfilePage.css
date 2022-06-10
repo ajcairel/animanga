@@ -6,3 +6,8 @@
 button {
     background-color: aqua;
 }
+
+.switch {
+    background-color: #fbc2c7;
+    border-radius: 5%;
+}
