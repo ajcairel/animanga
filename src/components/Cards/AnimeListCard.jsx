@@ -28,7 +28,7 @@ export default function AnimeListCard({ anime, refresh, setRefresh }) {
         <Card.Body>
           <Card.Title>{anime.title}</Card.Title>
         </Card.Body>
-        <Button as={Link} to={`/manga/${anime.animeId}`} variant="info">
+        <Button as={Link} to={`/anime/${anime.animeId}`} variant="info">
           {" "}
           Anime Details
         </Button>
