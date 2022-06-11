@@ -35,14 +35,13 @@ export default function UserCard({user}) {
       <Card.Img className="pfp" variant="top" src={`${pfp}`} />
       <Card.Body>
         <Card.Title>{user.name}</Card.Title>
-        {/* <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text> */}
+        <Card.Text>
+        
+        </Card.Text>
       </Card.Body>
       <Card.Body>
         {/* <Link to={`/anime/search`}>Anime Details</Link> */}
-        <Link to={`/profile/${user._id}`}>View</Link>
+        <Link to={`/profile/${user._id}`}>View Their Lists</Link>
       </Card.Body>
     </Card>
         // <article className="anime-card">

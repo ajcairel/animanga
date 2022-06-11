@@ -9,3 +9,8 @@
     background-color: #fbc2c7;
     border-radius: 5%;
 }
+
+.profile {
+    display: flex;
+    justify-content: center;
+}
