@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import * as usersService from '../../utilities/users-service';
 import './LoginForm.css';
 
@@ -50,6 +52,8 @@ export default function LoginForm({ setUser }) {
 
 
 
+    <div className='auth-box'>
+
 <div class="login-box">
         <h2>Welcome Back</h2>
   <h6>＼（＾○＾）人（＾○＾）／</h6>
@@ -73,6 +77,9 @@ export default function LoginForm({ setUser }) {
   </form>
   <p className="error-message">&nbsp;{error}</p>
 </div>
+
+    </div>
+
     
     </>
   );

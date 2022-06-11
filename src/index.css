@@ -1,4 +1,4 @@
-/* :root {
+ /* :root {
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
@@ -11,7 +11,7 @@
 
 *, *:before, *:after {
   box-sizing: border-box;
-} */
+}  */
 
 body {
   margin: 0;
@@ -21,6 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: var(--tan-4); */
+  /* margin-top: 10px; */
   padding: 2vmin;
   height: 100vh;
   /* background-image: url('https://cutewallpaper.org/21/pink-aesthetic-anime-wallpapers/1920x1080-Aesthetic-Anime-Wallpaper-Smokinwingsspartanburg.com.jpg'); */

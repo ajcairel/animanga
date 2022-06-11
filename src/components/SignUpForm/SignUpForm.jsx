@@ -57,6 +57,8 @@ export default class SignUpForm extends Component {
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
       </div> */}
+
+      <div className="auth-box"> 
       <div class="login-box">
         <h2>Join AniManga</h2>
   <h6>┏(＾0＾)┛┗(＾0＾) ┓</h6>
@@ -93,6 +95,7 @@ export default class SignUpForm extends Component {
   </form>
   <p className="error-message">&nbsp;{this.state.error}</p>
 </div>
+      </div>
     </>
     );
   }

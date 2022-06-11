@@ -36,6 +36,7 @@ export default function MangaSearchPage() {
           value={mangaSearch}
           onChange={(e) => setMangaSearch(e.target.value)}
         />
+      <button type="submit">search</button>
       </form>
 
       <Row xs={2} md={3} className="g-4 my-auto">

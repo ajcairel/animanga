@@ -117,9 +117,14 @@ export default function AnimeDetailPage({user}) {
                 <Card.Text>Status: {moreInfo.status}</Card.Text>
               </Card.Body>
             </Card>
+            <Card style={{ width: "35rem" }}>
+              <Card.Body>
+                <Card.Text > {moreInfo.synopsis} </Card.Text>
+              </Card.Body>
+            </Card>
 
           </div>
-            {moreInfo.synopsis}
+            
 
           {/* <article className="anime-card">
             <a href={specificAnime.url} target="_blank" rel="noreferrer">

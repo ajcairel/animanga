@@ -37,9 +37,7 @@ export default function AnimeSearchPage() {
     <>
       <h1>Anime Search</h1>
       
-      <Container fluid>
-        <Row>
-          <Col>
+     
             <form onSubmit={handleAnimeSearch}>
               <input
                 type="search"
@@ -50,11 +48,10 @@ export default function AnimeSearchPage() {
               />
               <button type="submit">search</button>
             </form>
-          </Col>
-        </Row>
-      </Container>
+          
+    
 
-      { animeList.length > 1 ?
+  
           <Row xs={2} md={3} className="g-4 my-auto">
           
             {animeList.map((anime) => (
@@ -62,12 +59,11 @@ export default function AnimeSearchPage() {
               ))}
         
           </Row>
-        :
         
-        <h1 visibility="hidden"> </h1>
+        
+      
       
 
-        }
 
   
 
