@@ -1,92 +1,73 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import UserCard from "../../components/Cards/UserCard";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import { Card } from "react-bootstrap";
-import { ListGroup } from "react-bootstrap";
-import * as iconAPI from '../../utilities/icon-api';
-import './MyProfilePage.css';
+import ProfileAnimePage from "./ProfileAnimePage";
+import * as iconAPI from "../../utilities/icon-api";
+import "./MyProfilePage.css";
 
 import AnimeListPage from "../AnimeListPage/AnimeListPage";
 import MangaListPage from "../MangaListPage/MangaListPage";
 
-export default function MyProfilePage({user}) {
-    const [view, setView] = useState(null);
-    const [refresh, setRefresh] = useState(true);
+export default function MyProfilePage({ user }) {
+  const [view, setView] = useState(true);
+  const [pfp, setPfp] = useState();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function getIcon() {
+      const icon = await iconAPI.getImage();
+      setPfp(icon.url);
+    }
+    getIcon();
+  }, []);
 
 
-    console.log(user);
-    // const {user} = useParams();
-    console.log(user.createdAt);
-    const date = new Date(user.createdAt);
-    console.log('Date: ', date); 
-    console.log(JSON.stringify(date));
-    // const d = date.getDate();
-    const d = Date.toString()
-    console.log(d);
-
-    const [pfp, setPfp] = useState();
-  
-
-
-    useEffect(() => {
-      async function getIcon() {
-        const icon = await iconAPI.getImage();
-        console.log('once', icon.url);
-        
-        setPfp(icon.url);
-      }
-      getIcon();
-    }, []);
-  
-    // async function getIcon() {
-    //   const icon = await iconAPI.getImage();
-    //   console.log(icon.url);
-      
-    //   setPfp(icon.url);
-    // }
-  
-    // getIcon();
-  
-  
-  
-      return (
-          <>
-       <h1>{user.name}</h1>
-       <div className="profile">
-        <Card style={{ width: "25rem", height: "25rem"}}>
-        <Card.Img className="" variant="top" src={`${pfp}`} style={{ width: "25rem", height: "25rem"}} />
-        
-      </Card>
-        <Card style={{ width: "25rem", height: "25rem"}}>
-        <Card.Body>
-          <Card.Title>{user.name}</Card.Title>
-          <ListGroup variant="flush">
-    <ListGroup.Item>Cras justo odio</ListGroup.Item>
-    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-  </ListGroup>
-        </Card.Body>
-        <Card.Body>
-          {/* <Link to={`/anime/search`}>Anime Details</Link> */}
-        </Card.Body>
-      </Card>
-    
-    
-
-
-       </div>
-          
-          </>
-
-        
-
+  return (
+    <>
+      <h1>{user.name}</h1>
+      <Navbar className="profile-nav">
+      <Nav>
+      <Nav.Link eventKey="4" as={Link} to={`${user.name}/manga`}>
+              My Manga
+            </Nav.Link>
             
+          </Nav>
+      </Navbar>
+      <div className="profile">
+        <Card style={{ width: "25rem", height: "25rem" }}>
+          <Card.Img
+            className=""
+            variant="top"
+            src={`${pfp}`}
+            style={{ width: "25rem", height: "25rem" }}
+          />
+          <Card.Body>
+            <Card.Title>{user.name}</Card.Title>
+            <Card.Link to={`${user.name}/anime`}> Card Link</Card.Link>
+            {/* <button onClick={() => setView(!view)}>SWITCH</button> */}
+            <button onClick={() => navigate(`${user.name}/manga`)}>SWITCH</button>
+          </Card.Body>
+        </Card>
+        {/* {view  ? (
+        <>
+          
+         <h1>anime</h1>
+          
+          <ProfileAnimePage user={user}/>
+        
+        </>
+      ) : (
+        <>
+         <h1>manga</h1>
+        </>
+      )} */}
+      
     
 
-           
-       
-   
-    
-
-    );
+      </div>
+    </>
+  );
 }

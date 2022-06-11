@@ -6,7 +6,7 @@ export default function MangaCard({ manga }) {
   
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={manga.images.jpg.image_url} />
+      <Card.Img variant="top" src={manga.images.jpg.image_url}/>
       <Card.Body>
         <Card.Title>{manga.title}</Card.Title>
       </Card.Body>

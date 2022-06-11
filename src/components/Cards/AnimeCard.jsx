@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 export default function AnimeCard({ anime }) {
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={anime.images.jpg.image_url} />
+      <Card.Img variant="top" src={anime.images.jpg.image_url} style={{ height: "20rem" }} />
       <Card.Body style={{ backgroundColor: "white" }}>
         <Card.Title>{anime.title}</Card.Title>
       </Card.Body>
