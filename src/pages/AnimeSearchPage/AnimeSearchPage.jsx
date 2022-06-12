@@ -12,11 +12,13 @@ export default function AnimeSearchPage() {
   const [animeSearch, setAnimeSearch] = useState("");
   // for the list of anime to render
   const [animeList, setAnimeList] = useState([]);
+  const [noResults, setNoResults] = useState(false)
 
   async function handleAnimeSearch(e) {
     e.preventDefault();
     const anime = await animeAPI.search(animeSearch);
     setAnimeList(anime);
+    if (noResults) 
     console.log(animeList);
   }
 
@@ -52,13 +54,35 @@ export default function AnimeSearchPage() {
     
 
   
-          <Row xs={2} md={3} className="g-4 my-auto">
+          <Row xs={2} md={3} className="cards">
           
             {animeList.map((anime) => (
               <AnimeCard anime={anime} key={anime.mal_id} />
               ))}
         
           </Row>
+
+          {/* <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Added!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body> has been added to your manga list!</Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+         */}
+         
+          
+          
+          
         
         
       

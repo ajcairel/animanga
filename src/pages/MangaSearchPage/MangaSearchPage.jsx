@@ -39,7 +39,7 @@ export default function MangaSearchPage() {
       <button type="submit">search</button>
       </form>
 
-      <Row xs={2} md={3} className="g-4 my-auto">
+      <Row xs={2} md={3} className="cards">
             {mangaList.map((manga) => (
               <MangaCard manga={manga} key={manga.mal_id} />
             ))} 
