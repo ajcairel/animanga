@@ -14,7 +14,9 @@ export default function AnimeListPage() {
     const getAnime = async () => {
       const animes = await animeAPI.getAllAnime();
       setAnime(animes);
-      setList();
+      console.log(anime.length);
+      console.log(anime);
+      // setList();
     };
     getAnime();
   }, [refresh]);

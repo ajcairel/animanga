@@ -53,6 +53,7 @@ async function isAdded(req, res) {
 async function getAllAnime(req, res) {
     const animes = await Anime.find({users: req.user._id}, );
     // console.log(animes)
+    console.log(req.user._id);
     res.json(animes);
 }
 
