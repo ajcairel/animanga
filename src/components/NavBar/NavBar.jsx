@@ -44,12 +44,12 @@ export default function NavBar({ user, setUser }) {
             <Nav.Link eventKey="3" as={Link} to="/profiles">
               All Profiles
             </Nav.Link>
-            <Nav.Link eventKey="4" as={Link} to={`/${user.name}/manga`}>
+            {/* <Nav.Link eventKey="4" as={Link} to={`/${user.name}/manga`}>
               My Manga
             </Nav.Link>
             <Nav.Link eventKey="5" as={Link} to={`${user.name}/anime`}>
               My Anime
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
           <Nav>
             <Nav.Link eventKey={1} onClick={refreshPage}>

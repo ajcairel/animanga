@@ -27,22 +27,10 @@ export default function MyProfilePage({ user }) {
 
   return (
     <>
-      <h1>{user.name}</h1>
-      <Navbar className="profile-nav">
-      <Nav>
-      <Nav.Link eventKey="1" as={Link} to={`${user.name}/manga`}>
-              My Manga
-            </Nav.Link>
-      <Nav.Link eventKey="2" as={Link} to={`/manga`}>
-              My Manga
-            </Nav.Link>
-            <Nav.Link eventKey="3" as={Link} to={`/${user.name}/manga`}>
-              My Manga
-            </Nav.Link>
-            
-          </Nav>
-      </Navbar>
-      <div className="profile">
+      <h1>Hello, {user.name}</h1>
+     
+      {/* <div className="profile"> */}
+      <div className="info">
         <Card style={{ width: "25rem", height: "25rem" }}>
           <Card.Img
             className=""
@@ -52,8 +40,16 @@ export default function MyProfilePage({ user }) {
           />
           <Card.Body>
             <Card.Title>{user.name}</Card.Title>
-            <button onClick={() => navigate(`/${user.name}/manga`)}>MANGA</button>
-            <button onClick={() => navigate(`/${user.name}/anime`)}>ANIME</button>
+            <button onClick={() => navigate(`/${user.name}/manga`)}>My Manga List</button>
+            <button onClick={() => navigate(`/${user.name}/anime`)}>My Anime List</button>
+          </Card.Body>
+        </Card>
+        <Card style={{ width: "25rem", height: "25rem" }}>
+        
+          <Card.Body>
+            <Card.Title>Random Anime Fact</Card.Title>
+            <button onClick={() => navigate(`/${user.name}/manga`)}>My Manga List</button>
+            <button onClick={() => navigate(`/${user.name}/anime`)}>My Anime List</button>
           </Card.Body>
         </Card>
         {/* {view  ? (
