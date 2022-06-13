@@ -1,8 +1,10 @@
 import { Component } from "react";
+import { useNavigate } from "react-router-dom";
 import { signUp } from "../../utilities/users-service";
 import { Button } from "react-bootstrap";
 
 export default class SignUpForm extends Component {
+
   state = {
     name: "",
     email: "",
@@ -23,6 +25,7 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       // Update user state with user
       this.props.setUser(user);
+
     } catch {
       // Invalid signup
       this.setState({
@@ -93,7 +96,7 @@ export default class SignUpForm extends Component {
                 required
               />
               <p>(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</p>
-              <Button variant="light" type="submit" className="button">SIGN UP</Button>
+              <Button disabled={disable} variant="light" type="submit" className="button">SIGN UP</Button>
 
             </form>
           </div>
