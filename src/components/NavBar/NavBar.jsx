@@ -98,7 +98,7 @@ export default function NavBar({ user, setUser }) {
           </Nav>
           <Nav>
             <Nav.Link eventKey={1} onClick={refreshPage}>
-              Refresh
+            (>‘o’)>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
