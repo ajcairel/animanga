@@ -41,9 +41,9 @@ export default class SignUpForm extends Component {
     const disable = this.state.password !== this.state.confirm;
     return (
       <>
-      {/* <div>
+      <div>
         <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
+          <form className="sign-up" autoComplete="off" onSubmit={this.handleSubmit}>
             <label>Name</label>
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
             <label>Email</label>
@@ -56,9 +56,9 @@ export default class SignUpForm extends Component {
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
-      </div> */}
+      </div>
 
-      <div className="auth-box"> 
+      {/* <div className="auth-box"> 
       <div class="login-box">
         <h2>Join AniManga</h2>
   <h6>┏(＾0＾)┛┗(＾0＾) ┓</h6>
@@ -66,24 +66,20 @@ export default class SignUpForm extends Component {
      
   <form autoComplete="off" onSubmit={this.handleSubmit}>
     <div class="user-box">
-      {/* <input type="text" name="" required=""/ > */}
       <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
       <label>Name</label>
     </div>
     <div class="user-box">
-      {/* <input type="password" name="" required=""/> */}
       <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
 
       <label>Email</label>
     </div>
     <div class="user-box">
-      {/* <input type="password" name="" required=""/> */}
       <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
 
       <label>Password</label>
     </div>
     <div class="user-box">
-      {/* <input type="password" name="" required=""/> */}
       <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
 
       <label>Confirm Password</label>
@@ -95,7 +91,7 @@ export default class SignUpForm extends Component {
   </form>
   <p className="error-message">&nbsp;{this.state.error}</p>
 </div>
-      </div>
+      </div> */}
     </>
     );
   }

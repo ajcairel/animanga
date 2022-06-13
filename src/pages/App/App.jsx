@@ -70,7 +70,7 @@ function App() {
               element={<MyProfilePage user={user} />}
             />
             <Route
-              path={`${user.name}/manga`}
+              path={`/${user.name}/manga`}
               element={<ProfileMangaPage user={user} />}
             />
             <Route

@@ -30,7 +30,13 @@ export default function MyProfilePage({ user }) {
       <h1>{user.name}</h1>
       <Navbar className="profile-nav">
       <Nav>
-      <Nav.Link eventKey="4" as={Link} to={`${user.name}/manga`}>
+      <Nav.Link eventKey="1" as={Link} to={`${user.name}/manga`}>
+              My Manga
+            </Nav.Link>
+      <Nav.Link eventKey="2" as={Link} to={`/manga`}>
+              My Manga
+            </Nav.Link>
+            <Nav.Link eventKey="3" as={Link} to={`/${user.name}/manga`}>
               My Manga
             </Nav.Link>
             
@@ -46,9 +52,8 @@ export default function MyProfilePage({ user }) {
           />
           <Card.Body>
             <Card.Title>{user.name}</Card.Title>
-            <Card.Link to={`${user.name}/anime`}> Card Link</Card.Link>
-            {/* <button onClick={() => setView(!view)}>SWITCH</button> */}
-            <button onClick={() => navigate(`${user.name}/manga`)}>SWITCH</button>
+            <button onClick={() => navigate(`/${user.name}/manga`)}>MANGA</button>
+            <button onClick={() => navigate(`/${user.name}/anime`)}>ANIME</button>
           </Card.Body>
         </Card>
         {/* {view  ? (

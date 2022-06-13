@@ -14,6 +14,7 @@ html {
   
   .login-box {
     position: absolute;
+    /* display: flex; */
     top: 60%;
     left: 50%;
     width: 50%;
@@ -21,6 +22,7 @@ html {
     transform: translate(-50%, -50%);
     background: rgba(0,0,0,.5);
     box-sizing: border-box;
+    /* box-sizing: content-box; */
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
   }
@@ -48,19 +50,34 @@ html {
     background: transparent;
   }
   .login-box .user-box label {
-    position: absolute;
-    top:0;
-    left: 0;
-    padding: 10px 0;
+    /* position: absolute; */
+    /* top:0;
+    left: 0; */
+    /* padding: 10px 0; */
     font-size: 16px;
     color: #fff;
     pointer-events: none;
     transition: .5s;
   }
   
-  .login-box .user-box input:focus ~ label,
+  /* .login-box .user-box input:focus ~ label,
   .login-box .user-box input:valid ~ label {
     top: -20px;
+    left: 0;
+    color: white;
+    font-size: 12px;
+  } */
+  .login-box .user-box input:focus ~ label {
+    top: -20px;
+ 
+    left: 0;
+    color: white;
+    font-size: 12px;
+  }
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    visibility: none;
+    /* display: none; */
     left: 0;
     color: white;
     font-size: 12px;
