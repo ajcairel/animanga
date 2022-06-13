@@ -48,7 +48,7 @@ export default function NavBar({ user, setUser }) {
           <Nav>
           
             <Nav.Link eventKey={1} onClick={refreshPage}>
-              Refresh
+            (>‘o’)>
             </Nav.Link>
             <NavDropdown
               title={`${user.name}`}
