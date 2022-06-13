@@ -1,5 +1,5 @@
 <div align="center">
-   <h1>::cherry_blossom: MyAniMangaList  :cherry_blossom: </h1>
+   <h1>:cherry_blossom: MyAniMangaList  :cherry_blossom: </h1>
    <h3><a href="https://myanimanga.herokuapp.com/">Visit Here!</a></h3>                            
    <h5>Alexander Cairel</h5>                             
    <a href="https://github.com/ajcairel" target="_blank">
