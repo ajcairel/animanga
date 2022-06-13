@@ -85,7 +85,7 @@ export default function AnimeDetailPage({ user }) {
               </Modal>
 
               <Button
-                variant="danger"
+                variant="success"
                 onClick={handleAddAnime}
                 disabled={added}
               >
@@ -110,10 +110,10 @@ export default function AnimeDetailPage({ user }) {
                 <ListGroup.Item>{moreInfo.synopsis}</ListGroup.Item>
 
                 <ListGroup.Item>
-                  <iframe
+                  {moreInfo.trailer.embed_url ?  <iframe
                     src={`${moreInfo.trailer.embed_url}`}
                     frameborder="0"
-                  ></iframe>
+                  ></iframe> : 'No Media'}
                 </ListGroup.Item>
                 <ListGroup.Item>Status: {moreInfo.status}</ListGroup.Item>
               </ListGroup>

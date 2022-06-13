@@ -23,12 +23,12 @@ export default function AnimeListCard({ anime, refresh, setRefresh }) {
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={anime.image} style={{ height: "24rem" }} />
-        <Card.Body>
+      <Card style={{ width: "15rem" }}>
+        <Card.Body style={{ height: "5rem", overflow: "scroll"}}>
           <Card.Title>{anime.title}</Card.Title>
         </Card.Body>
-        <Button as={Link} to={`/anime/${anime.animeId}`} variant="info">
+        <Card.Img variant="top" src={anime.image} style={{ height: "20rem", paddingBottom: "1rem" }}/>
+        <Button as={Link} to={`/anime/${anime.animeId}`} variant="light" className="button">
           {" "}
           Anime Details
         </Button>

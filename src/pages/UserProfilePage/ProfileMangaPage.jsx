@@ -12,7 +12,7 @@ export default function ProfileMangaPage({ user }) {
         to={`/${user.name}/anime`}
         className="button"
       >
-        Go To My Manga
+        Go To My Anime
       </Button>
 
       <h1>My Manga List</h1>

@@ -19,9 +19,9 @@ export default function UserCard({ user }) {
 
   return (
     <Card style={{ width: "18rem" }}>
+        <Card.Title>{user.name}</Card.Title>
       <Card.Img className="pfp" variant="top" src={`${pfp}`} />
       <Card.Body>
-        <Card.Title>{user.name}</Card.Title>
         <Card.Text>
           Joined: {new Date(user.createdAt).toLocaleDateString()}
         </Card.Text>

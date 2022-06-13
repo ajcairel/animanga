@@ -61,17 +61,17 @@ export default function MangaDetailPage({ user }) {
                 keyboard={false}
               >
                 <Modal.Header closeButton>
-                  <Modal.Title>Added!</Modal.Title>
+                  <Modal.Title>Added! ヾ(〃^∇^)ﾉ</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   {specificManga.title} has been added to your manga list!
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
+                  <Button variant="danger" onClick={handleClose}>
                     Close
                   </Button>
                   <Button
-                    variant="primary"
+                    variant="light" className="button"
                     as={Link}
                     to={`/${user.name}/manga`}
                   >
@@ -93,32 +93,21 @@ export default function MangaDetailPage({ user }) {
             </Button>
           )}
 
-<div className="info">
+          <div className="info">
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={specificManga.image} />
             </Card>
-
-</div>
-          <div className="info">
-          <Card style={{ width: "35rem" }}>
-            <Card.Title>Synopsis</Card.Title>
-
-              {/* <Card.Body>
-                <Card.Text> {moreInfo.synopsis} </Card.Text>
-              </Card.Body> */}
-              <ListGroup variant="flush">
-              <ListGroup.Item>
-              {moreInfo.synopsis}
-              </ListGroup.Item>
-
-              <ListGroup.Item>
-              Status: {moreInfo.status}
-              </ListGroup.Item>
-            </ListGroup>
-            </Card>
-           
           </div>
-        
+          <div className="info">
+            <Card style={{ width: "35rem" }}>
+              <Card.Title>Synopsis</Card.Title>
+              <ListGroup variant="flush">
+                <ListGroup.Item>{moreInfo.synopsis}</ListGroup.Item>
+
+                <ListGroup.Item>Status: {moreInfo.status}</ListGroup.Item>
+              </ListGroup>
+            </Card>
+          </div>
         </>
       )}
     </div>

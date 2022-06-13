@@ -6,7 +6,6 @@ import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 
 export default function MangaListCard({ manga, refresh, setRefresh }) {
-  // const [deleted, setDeleted] = useState(false);
   const [show, setShow] = useState(false);
 
   const handleClose = () => {
@@ -19,17 +18,16 @@ export default function MangaListCard({ manga, refresh, setRefresh }) {
     console.log(manga);
     const removed = await mangaAPI.removeManga(manga);
     handleShow();
-    // setDeleted(!deleted);
   }
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "15rem" }}>
         <Card.Body style={{ height: "5rem", overflow: "scroll"}}>
           <Card.Title>{manga.title}</Card.Title>
         </Card.Body>
         <Card.Img variant="top" src={manga.image} style={{ height: "20rem" }} />
-        <Button as={Link} to={`/manga/${manga.mangaId}`} variant="info">
+        <Button as={Link} to={`/manga/${manga.mangaId}`} variant="light" className="button">
           {" "}
           Manga Details
         </Button>
