@@ -93,7 +93,7 @@ export default function AnimeDetailPage({ user }) {
               </Button>
             </>
           ) : (
-            <Button variant="success" as={Link} to="/auth">
+            <Button variant="danger" as={Link} to="/auth">
               Log In To Add!
             </Button>
           )}
