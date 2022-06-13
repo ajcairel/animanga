@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import * as iconAPI from '../../utilities/icon-api';
 import './UserCard.css';
@@ -36,12 +37,15 @@ export default function UserCard({user}) {
       <Card.Body>
         <Card.Title>{user.name}</Card.Title>
         <Card.Text>
-        
+        Joined: {new Date(user.createdAt).toLocaleDateString()}
         </Card.Text>
       </Card.Body>
       <Card.Body>
         {/* <Link to={`/anime/search`}>Anime Details</Link> */}
-        <Link to={`/profile/${user._id}`}>View Their Lists</Link>
+        <Button as={Link} to={`/profile/${user._id}`} variant="info">
+          {" "}
+          View Their Lists
+        </Button>
       </Card.Body>
     </Card>
         // <article className="anime-card">

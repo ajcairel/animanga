@@ -27,7 +27,6 @@ export default function AnimeDetailPage({user}) {
         if(checked) {
           setAdded(!added)
         }
-
       }
       // console.log(checked);
       // specificAnime = specificAnime.data;

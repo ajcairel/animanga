@@ -52,6 +52,7 @@ export default function NavBar({ user, setUser }) {
             </Nav.Link> */}
           </Nav>
           <Nav>
+          
             <Nav.Link eventKey={1} onClick={refreshPage}>
               Refresh
             </Nav.Link>

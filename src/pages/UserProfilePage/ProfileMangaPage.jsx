@@ -13,7 +13,7 @@ export default function ProfileMangaPage({user}) {
     return (
         <> 
         
-              
+              <h1>My Manga List</h1>
         <Link to={`/${user.name}/anime`}>manga</Link>
         <MangaListPage />
          

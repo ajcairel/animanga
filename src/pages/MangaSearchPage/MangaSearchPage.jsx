@@ -80,11 +80,7 @@ export default function MangaSearchPage() {
 
       }
 
-      <Row xs={2} md={3} className="cards">
-            {mangaList.map((manga) => (
-              <MangaCard manga={manga} key={manga.mal_id} />
-            ))} 
-      </Row>
+     
 
       {/* <div className="manga-list">
         {mangaList.map((manga) => (
