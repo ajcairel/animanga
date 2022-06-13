@@ -21,7 +21,7 @@ html {
   }
   
   p.error-message {
-    color: violet;
+    color: red;
     text-align: center;
   }
 
