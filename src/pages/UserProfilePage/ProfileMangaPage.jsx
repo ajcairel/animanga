@@ -1,35 +1,22 @@
-import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
-import AnimeListPage from "../AnimeListPage/AnimeListPage";
 import MangaListPage from "../MangaListPage/MangaListPage";
 
-export default function ProfileMangaPage({user}) {
-    const [view, setView] = useState(null);
-    // const {user} = useParams();
+export default function ProfileMangaPage({ user }) {
+  return (
+    <>
+      <Button
+        variant="light"
+        as={Link}
+        to={`/${user.name}/anime`}
+        className="button"
+      >
+        Go To My Manga
+      </Button>
 
-
-
-    return (
-        <> 
-        
-              <h1>My Manga List</h1>
-        <Link to={`/${user.name}/anime`}>manga</Link>
-        <MangaListPage />
-         
-
-          
-            
-                
-            
-            
-            
-    
-
-           
-
-        </>
-    
-
-    );
+      <h1>My Manga List</h1>
+      <MangaListPage />
+    </>
+  );
 }

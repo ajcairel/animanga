@@ -1,11 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const imageCtrl = require('../../controllers/api/icon');
-// require the authorization middleware function
+const imageCtrl = require("../../controllers/api/icon");
 
-
-router.get('/image', imageCtrl.getImage);
-
-
+router.get("/image", imageCtrl.getImage);
 
 module.exports = router;

@@ -3,48 +3,38 @@ import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
-import './AnimeDetailPage.css';
+import { ListGroup } from "react-bootstrap";
+import "./AnimeDetailPage.css";
 import * as animeAPI from "../../utilities/anime-api";
 
-export default function AnimeDetailPage({user}) {
+export default function AnimeDetailPage({ user }) {
   const [specificAnime, setSpecificAnime] = useState();
   const [moreInfo, setMoreInfo] = useState();
   const [added, setAdded] = useState(false);
   const { aniId } = useParams();
-
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
-  
   useEffect(() => {
     async function getAnime() {
       let specificAnime = await animeAPI.getDetails(aniId);
-      if(user) {
+      if (user) {
         const checked = await animeAPI.isAdded(aniId);
-        if(checked) {
-          setAdded(!added)
+        if (checked) {
+          setAdded(!added);
         }
       }
-      // console.log(checked);
-      // specificAnime = specificAnime.data;
+
       setMoreInfo(specificAnime);
 
       const animeObj = {
-        // title: specificAnime && specificAnime.title,
-        // animeId: specificAnime && specificAnime.mal_id,
-        // image: specificAnime && specificAnime.images.jpg.image_url,
-        // malURL: specificAnime && specificAnime.url,
         title: specificAnime.title,
         animeId: specificAnime.mal_id,
         image: specificAnime.images.jpg.image_url,
-        malURL:  specificAnime.url,
+        malURL: specificAnime.url,
       };
       setSpecificAnime(animeObj);
-      // console.log('hello', specificAnime);
-
     }
     getAnime();
   }, []);
@@ -58,7 +48,6 @@ export default function AnimeDetailPage({user}) {
     const anime = await animeAPI.addAnime(specificAnime); // already added .data above
     handleShow();
     setAdded(!added);
-
   }
 
   return (
@@ -66,103 +55,70 @@ export default function AnimeDetailPage({user}) {
       {specificAnime && (
         <>
           <h1>{specificAnime.title}</h1>
-          {/* <h2>
-            <Link to="/search/anime">Back To Search Anime</Link>
-          </h2> */}
+
           {user ? (
-        <>
-         <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Added!</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>{specificAnime.title} has been added to your anime list!</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
+            <>
+              <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title>Added!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  {specificAnime.title} has been added to your anime list!
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                  <Button
+                    variant="primary"
+                    as={Link}
+                    to={`/${user.name}/anime`}
+                  >
+                    My Anime List
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+
+              <Button
+                variant="danger"
+                onClick={handleAddAnime}
+                disabled={added}
+              >
+                {added ? "Added" : "Add To My List"}
               </Button>
-              <Button variant="primary" as={Link} to={`/${user.name}/anime`}>
-                My Anime List
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        
-          <Button variant="success" onClick={handleAddAnime} disabled={added}>
-            {added ? 'Added' : 'Add To My List'}
-          </Button>
-         
-        </>
-      ) : (
-        // <AuthPage setUser={setUser} />
-        
-          <Button variant="success" as={Link} to="/auth">
-            Log In To Add!
-          </Button>
-        
-      )}
-          {/* <Button variant="success" onClick={handleAddAnime} disabled={added}>
-            {added ? 'Added' : 'Add To My List'}
-          </Button> */}
+            </>
+          ) : (
+            <Button variant="success" as={Link} to="/auth">
+              Log In To Add!
+            </Button>
+          )}
           <div className="info">
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={specificAnime.image} />
-              <Card.Body>
-                <Card.Title>{specificAnime.title}</Card.Title>
-                {/* <Card.Text>{moreInfo.synopsis}</Card.Text> */}
-                <Card.Text>Status: {moreInfo.status}</Card.Text>
-              </Card.Body>
             </Card>
-            <Card style={{ width: "35rem" }}>
-              <Card.Body>
-                <Card.Text > {moreInfo.synopsis} </Card.Text>
-              </Card.Body>
-            </Card>
-
           </div>
-            
+          <div className="info">
+            <Card style={{ width: "35rem" }}>
+              <Card.Title>Synopsis</Card.Title>
 
-          {/* <article className="anime-card">
-            <a href={specificAnime.url} target="_blank" rel="noreferrer">
-              <figure>
-                <img src={specificAnime.image} alt="Anime Image" />
-              </figure>
-              <h3>{specificAnime.title}</h3>
-            </a>
-          </article>
-          <p>{specificAnime.synopsis}</p>
-          <h1>{specificAnime.synopsis}</h1>
-          <h1>{specificAnime.title_japanese}</h1> */}
-          {/* <p>{JSON.stringify(specificAnime)}</p> */}
-          {/* <p>{specificAnime.duration}</p>
-          <Button variant="success" onClick={handleAddAnime}>
-            Add To My List
-          </Button>
-          <Button variant="primary" onClick={handleShow}>
-            Launch static backdrop modal
-          </Button> */}
-          {/* <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Added!</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>{specificAnime.title} has been added to your anime list!</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" as={Link} to={`/${user.name}/anime`}>
-                My Anime List
-              </Button>
-            </Modal.Footer>
-          </Modal> */}
+              <ListGroup variant="flush">
+                <ListGroup.Item>{moreInfo.synopsis}</ListGroup.Item>
+
+                <ListGroup.Item>
+                  <iframe
+                    src={`${moreInfo.trailer.embed_url}`}
+                    frameborder="0"
+                  ></iframe>
+                </ListGroup.Item>
+                <ListGroup.Item>Status: {moreInfo.status}</ListGroup.Item>
+              </ListGroup>
+            </Card>
+          </div>
         </>
       )}
     </div>

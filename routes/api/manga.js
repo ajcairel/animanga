@@ -1,28 +1,23 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const mangaCtrl = require('../../controllers/api/manga');
+const mangaCtrl = require("../../controllers/api/manga");
 // require the authorization middleware function
-const ensureLoggedIn = require ('../../config/ensureLoggedIn');
+const ensureLoggedIn = require("../../config/ensureLoggedIn");
 
-// POST /api/anime/add
-router.post('/add', mangaCtrl.addManga);
-// GET /api/anime/all
-// router.get('/all', ensureLoggedIn, mangaCtrl.getAllManga);
-router.get('/all', mangaCtrl.getAllManga);
+router.get("/all", mangaCtrl.getAllManga);
 
-router.post('/profile/user', mangaCtrl.getProfileManga);
+router.get("/top", mangaCtrl.getTop);
 
-router.post('/check', mangaCtrl.isAdded);
+router.post("/add", mangaCtrl.addManga);
 
-// FIX THIS
-router.post('/search', mangaCtrl.search);
+router.post("/profile/user", mangaCtrl.getProfileManga);
 
-router.put('/remove', mangaCtrl.removeManga);
+router.post("/check", mangaCtrl.isAdded);
 
-router.get('/top', mangaCtrl.getTop);
+router.post("/search", mangaCtrl.search);
 
-router.post('/manId/details', mangaCtrl.getDetails);
+router.post("/manId/details", mangaCtrl.getDetails);
 
-
+router.put("/remove", mangaCtrl.removeManga);
 
 module.exports = router;

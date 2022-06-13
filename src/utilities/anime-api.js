@@ -1,42 +1,39 @@
-// API modules are where the code lives to communicate
-// with the server via AJAX
-import sendRequest from './send-request';
-const BASE_URL = '/api/anime';
+import sendRequest from "./send-request";
+const BASE_URL = "/api/anime";
 
-
-// Refactored code below
 export function addAnime(animeData) {
-    console.log("ANIME DATA: ", animeData);
-    return sendRequest(`${BASE_URL}/add`, 'POST', animeData);
+  console.log("ANIME DATA: ", animeData);
+  return sendRequest(`${BASE_URL}/add`, "POST", animeData);
 }
 
 export function getAllAnime() {
-    return sendRequest(`${BASE_URL}/all`);
+  return sendRequest(`${BASE_URL}/all`);
 }
 
 export function getProfileAnime(params) {
-    return sendRequest(`${BASE_URL}/profile/user`, 'POST', {params});
+  return sendRequest(`${BASE_URL}/profile/user`, "POST", { params });
 }
 
 export function removeAnime(anime) {
-    return sendRequest(`${BASE_URL}/remove`, 'PUT', anime);
+  return sendRequest(`${BASE_URL}/remove`, "PUT", anime);
 }
 
 export function isAdded(params) {
-    return sendRequest(`${BASE_URL}/check`, 'POST', {params});
+  return sendRequest(`${BASE_URL}/check`, "POST", { params });
 }
 
 export function search(query) {
-    return sendRequest(`${BASE_URL}/search`, 'POST', {query})
+  return sendRequest(`${BASE_URL}/search`, "POST", { query });
 }
 
 export function getDetails(params) {
-    return sendRequest(`${BASE_URL}/aniId/details`, 'POST', {params})
+  return sendRequest(`${BASE_URL}/aniId/details`, "POST", { params });
 }
 
 export function getTop() {
-    return sendRequest(`${BASE_URL}/top`)
-
+  return sendRequest(`${BASE_URL}/top`);
 }
 
-// CHANGE THIS SHIT 
+export function getQuote() {
+    return sendRequest(`${BASE_URL}/quote`);
+}

@@ -30,7 +30,7 @@ export default function NavBar({ user, setUser }) {
             height="30"
             className="d-inline-block align-top"
           />{" "}
-          AniManga
+          MyAniManga
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -44,12 +44,6 @@ export default function NavBar({ user, setUser }) {
             <Nav.Link eventKey="3" as={Link} to="/profiles">
               All Profiles
             </Nav.Link>
-            {/* <Nav.Link eventKey="4" as={Link} to={`/${user.name}/manga`}>
-              My Manga
-            </Nav.Link>
-            <Nav.Link eventKey="5" as={Link} to={`${user.name}/anime`}>
-              My Anime
-            </Nav.Link> */}
           </Nav>
           <Nav>
           
@@ -61,7 +55,7 @@ export default function NavBar({ user, setUser }) {
               id="collasible-nav-dropdown"
               drop="start"
             >
-              <NavDropdown.Item as={Link} to="/profile/mine">
+              <NavDropdown.Item eventKey={7}as={Link} to="/profile/mine">
                 My Profile
               </NavDropdown.Item>
 
@@ -75,7 +69,6 @@ export default function NavBar({ user, setUser }) {
       </Navbar>
         </>
       ) : (
-        // <AuthPage setUser={setUser} />
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand as={Link} to="/">
           <img
@@ -85,7 +78,7 @@ export default function NavBar({ user, setUser }) {
             height="30"
             className="d-inline-block align-top"
           />{" "}
-          AniManga
+          MyAniManga
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -100,7 +93,7 @@ export default function NavBar({ user, setUser }) {
               All Profiles
             </Nav.Link>
             <Nav.Link eventKey="4" as={Link} to="/auth">
-              Log In or Sign Up
+              Log In/Sign Up
             </Nav.Link>
           </Nav>
           <Nav>

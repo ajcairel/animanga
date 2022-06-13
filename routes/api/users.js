@@ -1,20 +1,18 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const usersCtrl = require('../../controllers/api/users');
+const usersCtrl = require("../../controllers/api/users");
 // require the authorization middleware function
-const ensureLoggedIn = require ('../../config/ensureLoggedIn');
+const ensureLoggedIn = require("../../config/ensureLoggedIn");
 
 
-// GET /api/users/check-token
-router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
-// router.get('/check-token',  usersCtrl.checkToken);
-// POST /api/users
-router.post('/', usersCtrl.create);
-// POST /api/users/login
-router.post('/login', usersCtrl.login);
+router.get("/check-token", ensureLoggedIn, usersCtrl.checkToken);
 
-router.get('/users', usersCtrl.getUsers);
+router.post("/", usersCtrl.create);
 
-router.post('/profile/user', usersCtrl.getProfileUser);
+router.post("/login", usersCtrl.login);
+
+router.get("/users", usersCtrl.getUsers);
+
+router.post("/profile/user", usersCtrl.getProfileUser);
 
 module.exports = router;

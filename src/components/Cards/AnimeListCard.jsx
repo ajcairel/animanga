@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as animeAPI from "../../utilities/anime-api";
 export default function AnimeListCard({ anime, refresh, setRefresh }) {
-  const [deleted, setDeleted] = useState(false);
+  // const [deleted, setDeleted] = useState(false);
   const [show, setShow] = useState(false);
 
   const handleClose = () => {
@@ -18,7 +18,7 @@ export default function AnimeListCard({ anime, refresh, setRefresh }) {
     console.log(anime);
     const removed = await animeAPI.removeAnime(anime);
     handleShow();
-    setDeleted(!deleted);
+    // setDeleted(!deleted);
   }
 
   return (

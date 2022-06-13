@@ -1,26 +1,25 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const animeCtrl = require('../../controllers/api/anime');
+const animeCtrl = require("../../controllers/api/anime");
 // require the authorization middleware function
-const ensureLoggedIn = require ('../../config/ensureLoggedIn');
+const ensureLoggedIn = require("../../config/ensureLoggedIn");
 
-// POST /api/anime/add
-router.post('/add', animeCtrl.createAnime);
-// GET /api/anime/all
-// router.get('/all', ensureLoggedIn ,animeCtrl.getAllAnime);
-router.get('/all', animeCtrl.getAllAnime);
+router.get("/all", animeCtrl.getAllAnime);
 
-router.post('/profile/user', animeCtrl.getProfileAnime);
+router.get("/top", animeCtrl.getTop);
 
-router.post('/check', animeCtrl.isAdded);
-// FIX THIS
-router.post('/search', animeCtrl.search);
+router.get("/quote", animeCtrl.getQuote);
 
-router.put('/remove', animeCtrl.removeAnime);
+router.post("/add", animeCtrl.addAnime);
 
-router.get('/top', animeCtrl.getTop);
+router.post("/profile/user", animeCtrl.getProfileAnime);
 
-router.post('/aniId/details', animeCtrl.getDetails);
+router.post("/check", animeCtrl.isAdded);
 
+router.post("/search", animeCtrl.search);
+
+router.post("/aniId/details", animeCtrl.getDetails);
+
+router.put("/remove", animeCtrl.removeAnime);
 
 module.exports = router;

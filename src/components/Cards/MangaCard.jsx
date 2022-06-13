@@ -1,26 +1,22 @@
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 export default function MangaCard({ manga }) {
-
-  
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={manga.images.jpg.image_url}/>
-      <Card.Body>
+    <Card style={{ width: "15rem" }}>
+      <Card.Body style={{ height: "5rem", overflow: "scroll"}}>
         <Card.Title>{manga.title}</Card.Title>
       </Card.Body>
-      <Card.Body>
-        <Link to={`/manga/${manga.mal_id}`}>Manga Details</Link>
-      </Card.Body>
+      <Card.Img
+        variant="top"
+        src={manga.images.jpg.image_url}
+        style={{ height: "20rem", paddingBottom: "1rem" }}
+      />
+      <Button as={Link} to={`/manga/${manga.mal_id}`} variant="light" className="button">
+        {" "}
+        Manga Details
+      </Button>
     </Card>
-    // <article className="manga-card">
-    //   <a href={manga.url} target="_blank" rel="noreferrer">
-    //     <figure>
-    //       <img src={manga.images.jpg.image_url} alt="Manga Image" />
-    //     </figure>
-    //     <h3>{manga.title}</h3>
-    //   </a>
-    // </article>
   );
 }

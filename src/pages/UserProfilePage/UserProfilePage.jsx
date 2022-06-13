@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import * as animeAPI from "../../utilities/anime-api";
-import * as mangaAPI from '../../utilities/manga-api';
-import * as userAPI from '../../utilities/users-api';
-import AnimeListCard from "../../components/Cards/AnimeListCard";
+import * as mangaAPI from "../../utilities/manga-api";
+import * as userAPI from "../../utilities/users-api";
 import ProfileAnimeCard from "../../components/Cards/ProfileAnimeCard";
 import ProfileMangaCard from "../../components/Cards/ProfileMangaCard";
 import Row from "react-bootstrap/Row";
-
-import AnimeListPage from "../AnimeListPage/AnimeListPage";
-import MangaListPage from "../MangaListPage/MangaListPage";
+import { Button } from "react-bootstrap";
 
 export default function UserProfilePage() {
-  const [view, setView] = useState('anime');
+  const [view, setView] = useState("anime");
   const { user } = useParams();
   const [anime, setAnime] = useState([]);
   const [manga, setManga] = useState([]);
@@ -20,7 +17,6 @@ export default function UserProfilePage() {
 
   useEffect(() => {
     const getAnime = async () => {
-
       const animes = await animeAPI.getProfileAnime(user);
       setAnime(animes);
     };
@@ -29,34 +25,38 @@ export default function UserProfilePage() {
 
   useEffect(() => {
     const getManga = async () => {
-
       const mangas = await mangaAPI.getProfileManga(user);
       setManga(mangas);
     };
     getManga();
   }, []);
-  
+
   useEffect(() => {
     const getUser = async () => {
       const person = await userAPI.getProfileUser(user);
       console.log(person);
       setUserProfile(person);
     };
-    
+
     getUser();
   }, []);
-  
+
   console.log(userProfile);
-  
+
   if (!userProfile) return null;
-  
+
   return (
     <>
-      {view === 'anime' ? (
+      {view === "anime" ? (
         <>
-          
           <h1>{userProfile.name}'s Anime</h1>
-          <button className="switch" onClick={() => setView('manga')}>View Their Manga</button>
+          <Button
+            variant="light"
+            onClick={() => setView("manga")}
+            className="button"
+          >
+            View Their Manga
+          </Button>
           <Row xs={2} md={3} className="cards">
             {anime.map((anime, idx) => (
               <ProfileAnimeCard anime={anime} key={idx} />
@@ -66,7 +66,14 @@ export default function UserProfilePage() {
       ) : (
         <>
           <h1>{userProfile.name}'s Manga</h1>
-          <button className="switch" onClick={() => setView('anime')}>View Their Anime</button>
+          <Button
+            variant="light"
+            onClick={() => setView("anime")}
+            className="button"
+          >
+            View Their Anime
+          </Button>
+
           <Row xs={2} md={3} className="cards">
             {manga.map((manga, idx) => (
               <ProfileMangaCard manga={manga} key={idx} />

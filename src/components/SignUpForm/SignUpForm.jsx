@@ -1,13 +1,14 @@
-import { Component } from 'react';
-import { signUp } from '../../utilities/users-service';
+import { Component } from "react";
+import { signUp } from "../../utilities/users-service";
+import { Button } from "react-bootstrap";
 
 export default class SignUpForm extends Component {
   state = {
-    name: '',
-    email: '',
-    password: '',
-    confirm: '',
-    error: ''
+    name: "",
+    email: "",
+    password: "",
+    confirm: "",
+    error: "",
   };
 
   handleSubmit = async (evt) => {
@@ -25,40 +26,81 @@ export default class SignUpForm extends Component {
     } catch {
       // Invalid signup
       this.setState({
-        error: 'Sign Up Failed - Try Again'
+        error: "Sign Up Failed - Try Again",
       });
     }
-  }
+  };
 
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
-      error: ''
+      error: "",
     });
+  };
+
+  keyDown = (e) => { 
+    var e = window.event || e;
+    var key = e.keyCode;
+    //space pressed
+     if (key == 32) { //space
+      e.preventDefault();
+     }
+           
   }
 
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
       <>
-      <div>
-        <div className="form-container">
-          <form className="sign-up" autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-            <label>Email</label>
-            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-            <label>Password</label>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label>Confirm</label>
-            <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
-          </form>
-        </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
-      </div>
+        <div>
+          <div className="form-container">
+            <form
+              className="sign-up"
+              autoComplete="off"
+              onSubmit={this.handleSubmit}
+            >
+              <label>Name</label>
+              <input
+                type="text"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleChange}
+                onKeyDown={this.keyDown}
+                required
+              />
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+                required
+              />
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                required
+              />
+              <label>Confirm</label>
+              <input
+                type="password"
+                name="confirm"
+                value={this.state.confirm}
+                onChange={this.handleChange}
+                required
+              />
+              <p>(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</p>
+              <Button variant="light" type="submit" className="button">SIGN UP</Button>
 
-      {/* <div className="auth-box"> 
+            </form>
+          </div>
+          <p className="error-message">&nbsp;{this.state.error}</p>
+        </div>
+
+        {/* <div className="auth-box"> 
       <div class="login-box">
         <h2>Join AniManga</h2>
   <h6>┏(＾0＾)┛┗(＾0＾) ┓</h6>
@@ -92,7 +134,7 @@ export default class SignUpForm extends Component {
   <p className="error-message">&nbsp;{this.state.error}</p>
 </div>
       </div> */}
-    </>
+      </>
     );
   }
 }
