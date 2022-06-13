@@ -2,10 +2,12 @@ import { useState } from "react";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "./AuthPage.css";
 
 export default function AuthPage({ setUser }) {
   const [showSignUp, setShowSignUp] = useState(false);
+  const navigate = useNavigate();
   return (
     <main className="AuthPage">
       <div>
@@ -17,6 +19,7 @@ export default function AuthPage({ setUser }) {
             setUser={setUser}
             setShowSignUp={setShowSignUp}
             showSignUp={setShowSignUp}
+            navigate={navigate}
           />
         </>
       ) : (

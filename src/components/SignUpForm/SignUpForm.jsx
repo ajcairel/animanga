@@ -25,6 +25,7 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       // Update user state with user
       this.props.setUser(user);
+      this.props.navigate("/profile/mine")
 
     } catch {
       // Invalid signup
