@@ -31,7 +31,7 @@ export default function TopAnime() {
                 src={anime.images.jpg.image_url}
                 style={{ height: "20rem", paddingBottom: "1rem" }}
               />
-              <Button as={Link} to={`/anime/${anime.mal_id}`} variant="info">
+              <Button as={Link} to={`/anime/${anime.mal_id}`} variant="light" className="button">
           {" "}
           Details
         </Button>

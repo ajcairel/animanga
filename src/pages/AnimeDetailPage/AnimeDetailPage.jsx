@@ -65,17 +65,17 @@ export default function AnimeDetailPage({ user }) {
                 keyboard={false}
               >
                 <Modal.Header closeButton>
-                  <Modal.Title>Added!</Modal.Title>
+                  <Modal.Title>Added! ヾ(〃^∇^)ﾉ</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   {specificAnime.title} has been added to your anime list!
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
+                  <Button variant="danger" onClick={handleClose}>
                     Close
                   </Button>
                   <Button
-                    variant="primary"
+                    variant="light" className="button"
                     as={Link}
                     to={`/${user.name}/anime`}
                   >

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 import TopAnime from "../../components/Top/TopAnime";
 import TopManga from "../../components/Top/TopManga";
 
@@ -10,12 +11,12 @@ export default function TopPage() {
       <h1>Top {view}</h1>
       {view === "Anime" ? (
         <>
-          <button onClick={() => setView("Manga")}>View Top Manga</button>
+          <Button variant="light" className="button" onClick={() => setView("Manga")}>View Top Manga</Button>
           <TopAnime />
         </>
       ) : (
         <>
-          <button onClick={() => setView("Anime")}>View Top Anime</button>
+        <Button variant="light" className="button" onClick={() => setView("Anime")}>View Top Manga</Button>
           <TopManga />
         </>
       )}
