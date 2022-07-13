@@ -18,11 +18,12 @@
 <p> This MERN stack application is essentially a clone of the popular site MAL using the Jilkin Unoffical MAL API get the anima/manga information. I also used the waifu pics and animechan API's for photos and quotes respectively. You can browse the site without having to be logged in, however if you want to make your own list you have to sign up!  </p>
 
 <details>
-<summary> :art: Wireframes</summary>
+<summary> :art: ERD & Wireframe </summary>
 
 | Description | Screenshot |
 |------------ | ------------|
-| <h3 align="center">UI</h3> | <img src="https://i.imgur.com/zk6Vkjc.png" width="700"/> |
+| <h3 align="center">ERD</h3> | <img src="https://i.imgur.com/wIrsPpf.png" width="700"/> |
+| <h3 align="center">Wireframe</h3> | <img src="https://i.imgur.com/zk6Vkjc.png" width="700"/> |
 </details>
 
 <details>
