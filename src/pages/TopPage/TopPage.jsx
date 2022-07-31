@@ -16,7 +16,7 @@ export default function TopPage() {
         </>
       ) : (
         <>
-        <Button variant="light" className="button" onClick={() => setView("Anime")}>View Top Manga</Button>
+        <Button variant="light" className="button" onClick={() => setView("Anime")}>View Top Anime</Button>
           <TopManga />
         </>
       )}
