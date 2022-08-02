@@ -17,7 +17,7 @@
 </div>
 
 <h1>:pencil: Description</h1>
-<p> This MERN stack application is essentially a clone of the popular site MAL using the Jilkin Unoffical MAL API get the anima/manga information. I also used the waifu pics and animechan API's for photos and quotes respectively. You can browse the site without having to be logged in, however if you want to make your own list you have to sign up!  </p>
+<p> This is a MERN stack application that utlizes the Jikan v4 REST API to get information on anime and manga. You can browse the site without having to be logged in, however if you want to make your own list you have to sign up!  </p>
 
 <details>
 <summary> :art: ERD & Wireframe </summary>
