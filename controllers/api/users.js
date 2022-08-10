@@ -12,7 +12,6 @@ module.exports = {
 
 function checkToken(req, res) {
     // req.user will always be there for you when a token is sent
-    console.log('req.user', req.user);
     res.json(req.exp);
 }
 
@@ -43,16 +42,10 @@ async function create(req, res) {
 
 async function getUsers(req, res) {
   const users = await User.find({});
-  //console.log(users);
   res.json(users);
 }
 
 async function getProfileUser(req, res) {
-  // const user = await User.find({_id: req.body.params});
-  console.log(req.body.params);
-  // console.log('wtf');
-
-  // console.log(req.body);
   const user = await User.findOne({_id: req.body.params});
   console.log(user);
   res.json(user);
