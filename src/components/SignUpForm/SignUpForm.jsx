@@ -5,6 +5,26 @@ import { Button } from "react-bootstrap";
 
 export default class SignUpForm extends Component {
 
+  // Unlike with a function component that can define multiple 
+  // pieces of state usinf the useState hook multiple times,
+  // a class component's state is always a single object
+  // assigned to a state property on the instance of the 
+  // component 
+
+  // constructor method
+
+  // constructor() {
+  //   this.state = {
+  //     naim: '',
+  //     email: '',
+  //     password: '',
+  //     confirm: '',
+  //     error: ''
+  //   }
+  // }
+
+  // class fields approach 
+  
   state = {
     name: "",
     email: "",
