@@ -42,7 +42,7 @@ export default function MangaListCard({ manga, refresh, setRefresh }) {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Added!</Modal.Title>
+          <Modal.Title>Removed!</Modal.Title>
         </Modal.Header>
         <Modal.Body>{manga.title} has been deleted!</Modal.Body>
         <Modal.Footer>

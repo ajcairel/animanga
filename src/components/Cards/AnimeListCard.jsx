@@ -43,7 +43,7 @@ export default function AnimeListCard({ anime, refresh, setRefresh }) {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Added!</Modal.Title>
+          <Modal.Title>Removed!</Modal.Title>
         </Modal.Header>
         <Modal.Body>{anime.title} has been deleted!</Modal.Body>
         <Modal.Footer>
