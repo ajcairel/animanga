@@ -11,7 +11,8 @@ module.exports = {
     isAdded
 }
 
-const API_URL = 'https://api.jikan.moe/v4/'
+// const API_URL = 'https://api.jikan.moe/v4/'
+// Never used, just for placeholder
 
 
 async function getDetails(req,res) {

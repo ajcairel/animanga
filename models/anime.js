@@ -13,14 +13,7 @@ const animeSchema = new Schema({
     malURL: {type: String }
 });
 
-// const animeListSchema = new Schema({
-//     user: {
-//         type: Schema.Types.ObjectId,
-//         ref: 'User',
-//         required: true
-//     },
-//     topAnime: [animeSchema]
-// })
+
  
 
 
