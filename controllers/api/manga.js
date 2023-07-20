@@ -40,7 +40,8 @@ async function removeManga(req, res) {
 }
 
 async function search(req, res) {
-    const manga = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=ranking`
+    // const manga = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}&order_by=ranking`
+    const manga = await fetch(`https://api.jikan.moe/v4/manga?q=${req.body.query}`
     ).then(res => res.json());
     res.json(manga.data);
 }

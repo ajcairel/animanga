@@ -35,7 +35,8 @@ async function removeAnime(req, res) {
 }
 
 async function search(req, res) {
-    const anime = await fetch(`https://api.jikan.moe/v4/anime?q=${req.body.query}&order_by=ranking`
+    // const anime = await fetch(`https://api.jikan.moe/v4/anime?q=${req.body.query}&order_by=ranking`
+    const anime = await fetch(`https://api.jikan.moe/v4/anime?q=${req.body.query}`
     ).then(res => res.json());
     res.json(anime.data);  
 }
